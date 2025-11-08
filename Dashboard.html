@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Campus Maintenance Hub</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Campus Maintenance Hub</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -30,7 +33,7 @@
       },
     }
   </script>
-<style>
+  <style>
     .material-symbols-outlined {
       font-variation-settings:
         'FILL' 0,
@@ -40,227 +43,289 @@
     }
   </style>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
-<div class="flex min-h-screen">
-<!-- SideNavBar -->
-<aside class="w-64 flex-shrink-0 bg-[#0c111c] p-4 flex flex-col justify-between">
-<div class="flex flex-col gap-8">
-<div class="flex items-center gap-3 px-2">
-<span class="material-symbols-outlined text-primary text-3xl">build_circle</span>
-<h1 class="text-white text-lg font-bold">Campus Maintenance</h1>
-</div>
-<div class="flex flex-col gap-4">
-<div class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<p class="text-sm font-medium leading-normal">Dashboard</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors duration-200" href="#">
-<span class="material-symbols-outlined">description</span>
-<p class="text-sm font-medium leading-normal">Reports</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors duration-200" href="#">
-<span class="material-symbols-outlined">group</span>
-<p class="text-sm font-medium leading-normal">Users</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors duration-200" href="#">
-<span class="material-symbols-outlined">settings</span>
-<p class="text-sm font-medium leading-normal">Settings</p>
-</a>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-4 border-t border-white/10 pt-4">
-<div class="flex gap-3 items-center">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image with abstract gradient" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4YytbVn0HtqCDUEh8YHHbXkr1XQ1qIcpbQ2lk5w4ncyhtIZxZZ5oPCayYhxckzmaDEwbd4BchL_R9LlfweQaKsxNvOnrE20FGeXOSPYgN_Ee-ivxp33M9SvolNPmH_l4-w-KinIDH71da5cYYwTFJPcogqgHkwv45m5UuhCNozVxIbEO_0r5aHTaPJmtFUbM03Fo_wX5NSv3JDg3Au_ruoKjGXp1kaYtBwNQS4_BoDgXgGvXEQktOi2WMK9lXwqHy_RUgiHqqX5i");'></div>
-<div class="flex flex-col">
-<h1 class="text-white text-sm font-medium leading-normal">Admin User</h1>
-<p class="text-gray-400 text-xs font-normal leading-normal">admin@university.edu</p>
-</div>
-</div>
-</div>
-</aside>
-<!-- Main Content -->
-<main class="flex-1 p-8 overflow-y-auto">
-<div class="max-w-7xl mx-auto">
-<!-- PageHeading -->
-<header class="flex flex-wrap justify-between items-center gap-4 mb-6">
-<p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Maintenance Dashboard</p>
-<button class="bg-primary text-white font-medium py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-primary/90 transition-colors">
-<span class="material-symbols-outlined">add</span>
+  <div class="flex min-h-screen">
+    <!-- SideNavBar -->
+    <aside class="w-64 flex-shrink-0 bg-[#0c111c] p-4 flex flex-col justify-between">
+      <div class="flex flex-col gap-8">
+        <div class="flex items-center gap-3 px-2">
+          <span class="material-symbols-outlined text-primary text-3xl">build_circle</span>
+          <h1 class="text-white text-lg font-bold">Campus Maintenance</h1>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+              <span class="material-symbols-outlined">dashboard</span>
+              <p class="text-sm font-medium leading-normal">Dashboard</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined">description</span>
+              <p class="text-sm font-medium leading-normal">Reports</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined">group</span>
+              <p class="text-sm font-medium leading-normal">Users</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined">settings</span>
+              <p class="text-sm font-medium leading-normal">Settings</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 border-t border-white/10 pt-4">
+        <div class="flex gap-3 items-center">
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+            data-alt="User avatar image with abstract gradient"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4YytbVn0HtqCDUEh8YHHbXkr1XQ1qIcpbQ2lk5w4ncyhtIZxZZ5oPCayYhxckzmaDEwbd4BchL_R9LlfweQaKsxNvOnrE20FGeXOSPYgN_Ee-ivxp33M9SvolNPmH_l4-w-KinIDH71da5cYYwTFJPcogqgHkwv45m5UuhCNozVxIbEO_0r5aHTaPJmtFUbM03Fo_wX5NSv3JDg3Au_ruoKjGXp1kaYtBwNQS4_BoDgXgGvXEQktOi2WMK9lXwqHy_RUgiHqqX5i");'>
+          </div>
+          <div class="flex flex-col">
+            <h1 class="text-white text-sm font-medium leading-normal">Admin User</h1>
+            <p class="text-gray-400 text-xs font-normal leading-normal">admin@university.edu</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      <div class="max-w-7xl mx-auto">
+        <!-- PageHeading -->
+        <header class="flex flex-wrap justify-between items-center gap-4 mb-6">
+          <p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Maintenance
+            Dashboard</p>
+          <button
+            class="bg-primary text-white font-medium py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-primary/90 transition-colors">
+            <span class="material-symbols-outlined">add</span>
             New Report
           </button>
-</header>
-<!-- Stats -->
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-<div class="flex flex-col gap-2 rounded-xl p-6 border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700">
-<p class="text-gray-600 dark:text-gray-400 text-base font-medium leading-normal">Total Open Issues</p>
-<p class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">124</p>
-</div>
-<div class="flex flex-col gap-2 rounded-xl p-6 border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700">
-<p class="text-gray-600 dark:text-gray-400 text-base font-medium leading-normal">New This Week</p>
-<p class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">16</p>
-</div>
-<div class="flex flex-col gap-2 rounded-xl p-6 border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700">
-<p class="text-gray-600 dark:text-gray-400 text-base font-medium leading-normal">Overdue</p>
-<p class="text-red-500 tracking-tight text-3xl font-bold leading-tight">8</p>
-</div>
-</section>
-<!-- Charts -->
-<section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-<div class="flex flex-col gap-4 rounded-xl border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700 p-6">
-<div class="flex flex-col">
-<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Issues by Category</p>
-<p class="text-gray-500 dark:text-gray-400 text-sm">Last 30 Days</p>
-</div>
-<div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center">
-<div class="w-full bg-primary/20 rounded-t-md" style="height: 40%;"></div>
-<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Plumbing</p>
-<div class="w-full bg-primary/20 rounded-t-md" style="height: 60%;"></div>
-<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Electrical</p>
-<div class="w-full bg-primary/20 rounded-t-md" style="height: 90%;"></div>
-<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">HVAC</p>
-<div class="w-full bg-primary/20 rounded-t-md" style="height: 60%;"></div>
-<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">General</p>
-<div class="w-full bg-primary/20 rounded-t-md" style="height: 60%;"></div>
-<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">IT</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700 p-6">
-<div class="flex flex-col">
-<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Average Resolution Time</p>
-<p class="text-gray-500 dark:text-gray-400 text-sm">Last 30 Days</p>
-</div>
-<div class="flex min-h-[180px] flex-1 flex-col justify-end py-4">
-<svg fill="none" height="148" preserveaspectratio="none" viewbox="0 0 472 150" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#135bec" stroke-linecap="round" stroke-width="3"></path>
-</svg>
-</div>
-</div>
-</section>
-<!-- Issues Table Section -->
-<section class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-6">
-<h2 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4">All Reported Issues</h2>
-<!-- Filters -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-<input class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary" placeholder="Search issues..." type="text"/>
-</div>
-<select class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary">
-<option>Status: All</option>
-<option>Open</option>
-<option>In Progress</option>
-<option>Resolved</option>
-</select>
-<select class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary">
-<option>Type: All</option>
-<option>Plumbing</option>
-<option>Electrical</option>
-<option>HVAC</option>
-</select>
-<select class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary">
-<option>Building: All</option>
-<option>Science Hall</option>
-<option>Library</option>
-<option>Arts Building</option>
-</select>
-<input class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary" type="date"/>
-</div>
-<!-- Table -->
-<div class="overflow-x-auto">
-<table class="w-full text-sm text-left">
-<thead class="text-xs text-gray-500 dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5">
-<tr>
-<th class="px-6 py-3 rounded-l-lg" scope="col">Issue ID</th>
-<th class="px-6 py-3" scope="col">Type</th>
-<th class="px-6 py-3" scope="col">Location</th>
-<th class="px-6 py-3" scope="col">Reporter</th>
-<th class="px-6 py-3" scope="col">Date</th>
-<th class="px-6 py-3" scope="col">Status</th>
-<th class="px-6 py-3 rounded-r-lg" scope="col">Actions</th>
-</tr>
-</thead>
-<tbody>
-<tr class="border-b dark:border-gray-700">
-<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10521</td>
-<td class="px-6 py-4">Plumbing</td>
-<td class="px-6 py-4">Science Hall - Room 301</td>
-<td class="px-6 py-4">Jane Doe</td>
-<td class="px-6 py-4">2023-10-27</td>
-<td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Open</span></td>
-<td class="px-6 py-4 flex items-center gap-2">
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">assignment_ind</span></button>
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">schedule</span></button>
-<button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span class="material-symbols-outlined text-base">check_circle</span></button>
-</td>
-</tr>
-<tr class="border-b dark:border-gray-700">
-<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10520</td>
-<td class="px-6 py-4">Electrical</td>
-<td class="px-6 py-4">Library - 2nd Floor</td>
-<td class="px-6 py-4">John Smith</td>
-<td class="px-6 py-4">2023-10-26</td>
-<td class="px-6 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">In Progress</span></td>
-<td class="px-6 py-4 flex items-center gap-2">
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">assignment_ind</span></button>
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">schedule</span></button>
-<button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span class="material-symbols-outlined text-base">check_circle</span></button>
-</td>
-</tr>
-<tr class="border-b dark:border-gray-700">
-<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10519</td>
-<td class="px-6 py-4">HVAC</td>
-<td class="px-6 py-4">Arts Building - Main Hall</td>
-<td class="px-6 py-4">Emily White</td>
-<td class="px-6 py-4">2023-10-25</td>
-<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Resolved</span></td>
-<td class="px-6 py-4 flex items-center gap-2">
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">assignment_ind</span></button>
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">schedule</span></button>
-<button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span class="material-symbols-outlined text-base">check_circle</span></button>
-</td>
-</tr>
-<tr class="border-b dark:border-gray-700">
-<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10518</td>
-<td class="px-6 py-4">General</td>
-<td class="px-6 py-4">Dormitory B - Room 112</td>
-<td class="px-6 py-4">Michael Brown</td>
-<td class="px-6 py-4">2023-10-24</td>
-<td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Open</span></td>
-<td class="px-6 py-4 flex items-center gap-2">
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">assignment_ind</span></button>
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">schedule</span></button>
-<button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span class="material-symbols-outlined text-base">check_circle</span></button>
-</td>
-</tr>
-<tr>
-<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10517</td>
-<td class="px-6 py-4">IT</td>
-<td class="px-6 py-4">Science Hall - Lab 4</td>
-<td class="px-6 py-4">Sarah Green</td>
-<td class="px-6 py-4">2023-10-23</td>
-<td class="px-6 py-4"><span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Overdue</span></td>
-<td class="px-6 py-4 flex items-center gap-2">
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">assignment_ind</span></button>
-<button class="p-1 text-gray-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">schedule</span></button>
-<button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span class="material-symbols-outlined text-base">check_circle</span></button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Pagination -->
-<nav aria-label="Table navigation" class="flex items-center justify-between pt-4">
-<span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">1-5</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span></span>
-<ul class="inline-flex -space-x-px text-sm h-8">
-<li><a class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Previous</a></li>
-<li><a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">1</a></li>
-<li><a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Next</a></li>
-</ul>
-</nav>
-</section>
-</div>
-</main>
-</div>
-</body></html>
+        </header>
+        <!-- Stats -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div
+            class="flex flex-col gap-2 rounded-xl p-6 border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700">
+            <p class="text-gray-600 dark:text-gray-400 text-base font-medium leading-normal">Total Open Issues</p>
+            <p class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">124</p>
+          </div>
+          <div
+            class="flex flex-col gap-2 rounded-xl p-6 border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700">
+            <p class="text-gray-600 dark:text-gray-400 text-base font-medium leading-normal">New This Week</p>
+            <p class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">16</p>
+          </div>
+          <div
+            class="flex flex-col gap-2 rounded-xl p-6 border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700">
+            <p class="text-gray-600 dark:text-gray-400 text-base font-medium leading-normal">Overdue</p>
+            <p class="text-red-500 tracking-tight text-3xl font-bold leading-tight">8</p>
+          </div>
+        </section>
+        <!-- Charts -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div
+            class="flex flex-col gap-4 rounded-xl border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex flex-col">
+              <p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Issues by Category</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Last 30 Days</p>
+            </div>
+            <div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center">
+              <div class="w-full bg-primary/20 rounded-t-md" style="height: 40%;"></div>
+              <p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Plumbing</p>
+              <div class="w-full bg-primary/20 rounded-t-md" style="height: 60%;"></div>
+              <p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Electrical</p>
+              <div class="w-full bg-primary/20 rounded-t-md" style="height: 90%;"></div>
+              <p class="text-gray-500 dark:text-gray-400 text-xs font-medium">HVAC</p>
+              <div class="w-full bg-primary/20 rounded-t-md" style="height: 60%;"></div>
+              <p class="text-gray-500 dark:text-gray-400 text-xs font-medium">General</p>
+              <div class="w-full bg-primary/20 rounded-t-md" style="height: 60%;"></div>
+              <p class="text-gray-500 dark:text-gray-400 text-xs font-medium">IT</p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 rounded-xl border bg-white dark:bg-background-dark border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex flex-col">
+              <p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Average Resolution Time</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Last 30 Days</p>
+            </div>
+            <div class="flex min-h-[180px] flex-1 flex-col justify-end py-4">
+              <svg fill="none" height="148" preserveaspectratio="none" viewbox="0 0 472 150" width="100%"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                  stroke="#135bec" stroke-linecap="round" stroke-width="3"></path>
+              </svg>
+            </div>
+          </div>
+        </section>
+        <!-- Issues Table Section -->
+        <section
+          class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-6">
+          <h2 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4">All
+            Reported Issues</h2>
+          <!-- Filters -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
+            <div class="relative flex-1">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+              <input
+                class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary"
+                placeholder="Search issues..." type="text" />
+            </div>
+            <select
+              class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary">
+              <option>Status: All</option>
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
+            <select
+              class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary">
+              <option>Type: All</option>
+              <option>Plumbing</option>
+              <option>Electrical</option>
+              <option>HVAC</option>
+            </select>
+            <select
+              class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary">
+              <option>Building: All</option>
+              <option>Science Hall</option>
+              <option>Library</option>
+              <option>Arts Building</option>
+            </select>
+            <input
+              class="w-full border-gray-300 dark:border-gray-600 rounded-md bg-transparent focus:ring-primary focus:border-primary"
+              type="date" />
+          </div>
+          <!-- Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+              <thead class="text-xs text-gray-500 dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5">
+                <tr>
+                  <th class="px-6 py-3 rounded-l-lg" scope="col">Issue ID</th>
+                  <th class="px-6 py-3" scope="col">Type</th>
+                  <th class="px-6 py-3" scope="col">Location</th>
+                  <th class="px-6 py-3" scope="col">Reporter</th>
+                  <th class="px-6 py-3" scope="col">Date</th>
+                  <th class="px-6 py-3" scope="col">Status</th>
+                  <th class="px-6 py-3 rounded-r-lg" scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b dark:border-gray-700">
+                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10521</td>
+                  <td class="px-6 py-4">Plumbing</td>
+                  <td class="px-6 py-4">Science Hall - Room 301</td>
+                  <td class="px-6 py-4">Jane Doe</td>
+                  <td class="px-6 py-4">2023-10-27</td>
+                  <td class="px-6 py-4"><span
+                      class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Open</span>
+                  </td>
+                  <td class="px-6 py-4 flex items-center gap-2">
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">assignment_ind</span></button>
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">schedule</span></button>
+                    <button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span
+                        class="material-symbols-outlined text-base">check_circle</span></button>
+                  </td>
+                </tr>
+                <tr class="border-b dark:border-gray-700">
+                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10520</td>
+                  <td class="px-6 py-4">Electrical</td>
+                  <td class="px-6 py-4">Library - 2nd Floor</td>
+                  <td class="px-6 py-4">John Smith</td>
+                  <td class="px-6 py-4">2023-10-26</td>
+                  <td class="px-6 py-4"><span
+                      class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">In
+                      Progress</span></td>
+                  <td class="px-6 py-4 flex items-center gap-2">
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">assignment_ind</span></button>
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">schedule</span></button>
+                    <button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span
+                        class="material-symbols-outlined text-base">check_circle</span></button>
+                  </td>
+                </tr>
+                <tr class="border-b dark:border-gray-700">
+                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10519</td>
+                  <td class="px-6 py-4">HVAC</td>
+                  <td class="px-6 py-4">Arts Building - Main Hall</td>
+                  <td class="px-6 py-4">Emily White</td>
+                  <td class="px-6 py-4">2023-10-25</td>
+                  <td class="px-6 py-4"><span
+                      class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Resolved</span>
+                  </td>
+                  <td class="px-6 py-4 flex items-center gap-2">
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">assignment_ind</span></button>
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">schedule</span></button>
+                    <button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span
+                        class="material-symbols-outlined text-base">check_circle</span></button>
+                  </td>
+                </tr>
+                <tr class="border-b dark:border-gray-700">
+                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10518</td>
+                  <td class="px-6 py-4">General</td>
+                  <td class="px-6 py-4">Dormitory B - Room 112</td>
+                  <td class="px-6 py-4">Michael Brown</td>
+                  <td class="px-6 py-4">2023-10-24</td>
+                  <td class="px-6 py-4"><span
+                      class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Open</span>
+                  </td>
+                  <td class="px-6 py-4 flex items-center gap-2">
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">assignment_ind</span></button>
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">schedule</span></button>
+                    <button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span
+                        class="material-symbols-outlined text-base">check_circle</span></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#10517</td>
+                  <td class="px-6 py-4">IT</td>
+                  <td class="px-6 py-4">Science Hall - Lab 4</td>
+                  <td class="px-6 py-4">Sarah Green</td>
+                  <td class="px-6 py-4">2023-10-23</td>
+                  <td class="px-6 py-4"><span
+                      class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Overdue</span>
+                  </td>
+                  <td class="px-6 py-4 flex items-center gap-2">
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">assignment_ind</span></button>
+                    <button class="p-1 text-gray-500 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-base">schedule</span></button>
+                    <button class="p-1 text-gray-500 hover:text-green-500 transition-colors"><span
+                        class="material-symbols-outlined text-base">check_circle</span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Pagination -->
+          <nav aria-label="Table navigation" class="flex items-center justify-between pt-4">
+            <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span
+                class="font-semibold text-gray-900 dark:text-white">1-5</span> of <span
+                class="font-semibold text-gray-900 dark:text-white">100</span></span>
+            <ul class="inline-flex -space-x-px text-sm h-8">
+              <li><a
+                  class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  href="#">Previous</a></li>
+              <li><a
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  href="#">1</a></li>
+              <li><a
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  href="#">Next</a></li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
