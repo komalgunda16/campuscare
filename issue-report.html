@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Report a New Maintenance Issue</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007BFF",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101622",
+                        "success": "#28A745",
+                        "text-dark": "#212529",
+                        "border-light": "#dee2e6",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-dark dark:text-gray-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <main class="flex flex-1 justify-center py-10 md:py-16 px-4 sm:px-6 lg:px-8">
+                <div class="layout-content-container flex flex-col w-full max-w-2xl flex-1">
+                    <!-- Page Heading -->
+                    <div class="flex flex-wrap justify-between gap-3 pb-8">
+                        <div class="flex flex-col gap-2">
+                            <h1
+                                class="text-3xl sm:text-4xl font-black leading-tight tracking-tight text-text-dark dark:text-white">
+                                Report a New Maintenance Issue</h1>
+                            <p class="text-base font-normal text-gray-500 dark:text-gray-400">Fill out the form below to
+                                submit a maintenance request.</p>
+                        </div>
+                    </div>
+                    <!-- Form Container -->
+                    <div
+                        class="bg-white dark:bg-gray-800/50 rounded-xl shadow-sm border border-border-light dark:border-gray-700">
+                        <form action="#" method="POST">
+                            <div class="p-6 sm:p-8">
+                                <!-- Section Header -->
+                                <h2
+                                    class="text-xl font-bold leading-tight tracking-tight text-text-dark dark:text-white pb-6">
+                                    Issue Details</h2>
+                                <div class="grid grid-cols-1 gap-6">
+                                    <!-- Issue Type Dropdown -->
+                                    <label class="flex flex-col">
+                                        <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">What type
+                                            of issue is it?</p>
+                                        <select
+                                            class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-400 px-3 text-base font-normal leading-normal">
+                                            <option value="">Select issue type</option>
+                                            <option value="lighting">Lighting</option>
+                                            <option value="plumbing">Plumbing</option>
+                                            <option value="furniture">Furniture</option>
+                                            <option value="hvac">HVAC (Fan/AC/Heating)</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </label>
+                                    <!-- Location Input -->
+                                    <label class="flex flex-col">
+                                        <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">Where is
+                                            the issue located?</p>
+                                        <input
+                                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-400 px-3 text-base font-normal leading-normal"
+                                            placeholder="e.g., Room 301, Library Entrance" value="" />
+                                    </label>
+                                    <!-- Description Text Area -->
+                                    <label class="flex flex-col">
+                                        <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">Please
+                                            describe the problem in detail.</p>
+                                        <textarea
+                                            class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary min-h-32 placeholder:text-gray-400 p-3 text-base font-normal leading-normal"
+                                            placeholder="Describe the issue here..."></textarea>
+                                    </label>
+                                    <!-- File Upload -->
+                                    <div>
+                                        <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">Add a
+                                            photo to help us understand.</p>
+                                        <div
+                                            class="mt-1 flex justify-center items-center w-full px-6 pt-5 pb-6 border-2 border-border-light dark:border-gray-600 border-dashed rounded-lg bg-background-light dark:bg-gray-700/50">
+                                            <div class="space-y-1 text-center">
+                                                <span
+                                                    class="material-symbols-outlined text-4xl text-gray-400">upload_file</span>
+                                                <div class="flex text-sm text-gray-600 dark:text-gray-400">
+                                                    <label
+                                                        class="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary"
+                                                        for="file-upload">
+                                                        <span>Upload a file</span>
+                                                        <input class="sr-only" id="file-upload" name="file-upload"
+                                                            type="file" />
+                                                    </label>
+                                                    <p class="pl-1">or drag and drop</p>
+                                                </div>
+                                                <p class="text-xs text-gray-500 dark:text-gray-500">PNG, JPG, GIF up to
+                                                    10MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form Footer / Submit Button -->
+                            <div
+                                class="bg-gray-50 dark:bg-gray-800/30 px-6 sm:px-8 py-4 border-t border-border-light dark:border-gray-700 rounded-b-xl">
+                                <div class="flex justify-end">
+                                    <button
+                                        class="inline-flex justify-center items-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:ring-offset-gray-800 transition-colors"
+                                        type="submit">
+                                        Submit Report
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Success Message Example -->
+                    <div
+                        class="mt-8 p-4 rounded-lg bg-success/10 border border-success/30 flex items-start gap-3 hidden">
+                        <span class="material-symbols-outlined text-success mt-1">task_alt</span>
+                        <div>
+                            <p class="font-bold text-success">Success!</p>
+                            <p class="text-sm text-success/80">Your report has been submitted. Tracking ID: #12345</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

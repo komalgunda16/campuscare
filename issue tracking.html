@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Issue #12345 - Campus Maintenance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-b-[#232f48] px-4 sm:px-6 lg:px-10 py-3 bg-background-light dark:bg-[#111722]">
+<div class="flex items-center gap-4 text-gray-800 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8v-2h3V7h2v4h3v2h-3v4h-2z"></path>
+</svg>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Campus Maintenance</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-gray-600 dark:text-white text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold leading-normal" href="#">All Issues</a>
+<a class="text-gray-600 dark:text-white text-sm font-medium leading-normal" href="#">Reports</a>
+<a class="text-gray-600 dark:text-white text-sm font-medium leading-normal" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Report New Issue</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkdDg55E08E_-qsp_8m63JGUYBe1J-LkkidaTIfpbmPJE62RqKa7NohQx54P-HRadyQJOyCJBsZeuLj6CgY0eCEdYIfqaAZ_BQ-na7jt6JbeHTD8vnE0tZVJ3hm_5J6o2GEDVMa2o787eSDtuud1hjMIuXQ48Q53CXg815genwhFaGni0kADdKNJjZg5jCdD7CkB_2lmuTlwOqa74KN8XXcGuxrHNmdzr3Af09u4xvw6vuY9sdmDa-t20IagibBVkCxUsKr8SQg7JR");'></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center p-4 sm:p-6 lg:p-10">
+<div class="flex w-full max-w-7xl flex-col gap-6">
+<!-- Breadcrumbs & Page Heading -->
+<div>
+<div class="flex flex-wrap gap-2 mb-4">
+<a class="text-gray-500 dark:text-[#92a4c9] text-sm font-medium leading-normal" href="#">All Issues</a>
+<span class="text-gray-500 dark:text-[#92a4c9] text-sm font-medium leading-normal">/</span>
+<span class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Issue #12345</span>
+</div>
+<div class="flex flex-wrap items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-gray-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Issue #12345 - Leaking Faucet in Library Restroom</h1>
+<p class="text-gray-600 dark:text-[#92a4c9] text-base font-normal leading-normal">A detailed overview of the reported maintenance issue.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-[#232f48] text-gray-800 dark:text-white text-sm font-bold leading-normal tracking-[0.015em] border border-gray-200 dark:border-white/10 shadow-sm">
+<span class="truncate">Edit Issue</span>
+</button>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Issue Details -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="rounded-xl border border-gray-200 dark:border-[#232f48] bg-white dark:bg-[#111722] p-6">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+<span class="material-symbols-outlined text-base">plumbing</span>
+                                            Plumbing
+                                        </span>
+</div>
+<!-- Metadata List -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 dark:text-[#92a4c9] mt-0.5">location_on</span>
+<div>
+<p class="text-gray-500 dark:text-[#92a4c9]">Location</p>
+<p class="text-gray-800 dark:text-white font-medium">Main Library, 2nd Floor, Men's Restroom</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 dark:text-[#92a4c9] mt-0.5">person</span>
+<div>
+<p class="text-gray-500 dark:text-[#92a4c9]">Reported By</p>
+<p class="text-gray-800 dark:text-white font-medium">Sarah Jenkins</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 dark:text-[#92a4c9] mt-0.5">calendar_today</span>
+<div>
+<p class="text-gray-500 dark:text-[#92a4c9]">Date Reported</p>
+<p class="text-gray-800 dark:text-white font-medium">Oct 26, 2023</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-[#232f48]"></div>
+<!-- Description -->
+<div>
+<h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Description</h3>
+<p class="text-gray-600 dark:text-[#92a4c9] leading-relaxed">The faucet on the second sink from the left is continuously dripping, even when turned off completely. It seems to be a steady drip, about one drop per second. This has been happening for the last couple of days. There is a small puddle forming on the counter as a result.</p>
+</div>
+<!-- Image Gallery -->
+<div>
+<h3 class="text-base font-bold text-gray-900 dark:text-white mb-3">Attached Images</h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="aspect-video w-full rounded-lg bg-center bg-no-repeat bg-cover" data-alt="Leaking faucet with water dripping" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIA3xhSE36LvUv13c7rOLtaefJSJ6nWqOYiPVpnDtXEtV2069Dtuw26Y4rb4rpugKYizwWZv5n2B7fIWjYzsOSF0KLFpbswURatE5XTNE4lUXgOqoowDFvm3JBWEDILfzXDMOjvNgJE0X4NAnN6GgGQqO37s1DaSk__vuro9B2LWdn-RZU89aLvlNrg0lc-du_Swz0qEoQxwJgPpRmgFESEg41Dv8rqnhR7FXt0Ly8gjW85zL4ETz7cPnV4yfM0dbkd51h10WLB3_w')"></div>
+<div class="aspect-video w-full rounded-lg bg-center bg-no-repeat bg-cover" data-alt="Close up of faucet handle" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKCZxddDxFbRXVAb1HIu9BfAYC5jKQZSJsYtrpbnwdUIenWqUqO9FHqMLfaLUu_FRAqcQRoFFe5Pe1_QEM03ZvEsjyV40LptAVs-vGuGON5Y7O7W1_s6gmDDHL0Qihlk9dfbR722hgtwI2sIXk0io3Q6RMhBFrExCzi4pA8-sleSVcIHxHZ0y6YMna4w_Hd_Hkj8KrBOWnsTnS03afY_L2l9KDEDAMWNwdr4Z3kAz56AVtNqeHPLzFAmoUUqLZuTm5_oQohZ85-q5y')"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Status & Updates -->
+<div class="flex flex-col gap-6">
+<!-- Status Stepper -->
+<div class="rounded-xl border border-gray-200 dark:border-[#232f48] bg-white dark:bg-[#111722] p-6">
+<h3 class="text-base font-bold text-gray-900 dark:text-white mb-6">Issue Status</h3>
+<div class="relative flex flex-col gap-8 pl-4">
+<!-- Timeline line -->
+<div class="absolute left-6 top-2 h-full w-0.5 bg-gray-200 dark:bg-[#232f48]"></div>
+<!-- Reported Step -->
+<div class="relative flex items-start gap-4">
+<div class="z-10 flex size-5 items-center justify-center rounded-full bg-primary ring-4 ring-white dark:ring-[#111722] mt-0.5">
+<span class="material-symbols-outlined text-xs text-white">check</span>
+</div>
+<div>
+<p class="font-bold text-primary">Reported</p>
+<p class="text-xs text-gray-500 dark:text-[#92a4c9]">Oct 26, 2023</p>
+</div>
+</div>
+<!-- In Progress Step -->
+<div class="relative flex items-start gap-4">
+<div class="z-10 flex size-5 items-center justify-center rounded-full bg-primary ring-4 ring-white dark:ring-[#111722] mt-0.5">
+<span class="material-symbols-outlined text-xs text-white">autorenew</span>
+</div>
+<div>
+<p class="font-bold text-primary">In Progress</p>
+<p class="text-xs text-gray-500 dark:text-[#92a4c9]">Oct 27, 2023</p>
+</div>
+</div>
+<!-- Resolved Step -->
+<div class="relative flex items-start gap-4">
+<div class="z-10 flex size-5 items-center justify-center rounded-full bg-gray-300 dark:bg-[#232f48] ring-4 ring-white dark:ring-[#111722] mt-0.5"></div>
+<div>
+<p class="font-medium text-gray-500 dark:text-[#92a4c9]">Resolved</p>
+<p class="text-xs text-gray-500 dark:text-[#92a4c9]">Pending</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Comments/Updates Feed -->
+<div class="rounded-xl border border-gray-200 dark:border-[#232f48] bg-white dark:bg-[#111722] p-6">
+<h3 class="text-base font-bold text-gray-900 dark:text-white mb-4">Updates &amp; Comments</h3>
+<div class="flex flex-col gap-4">
+<!-- Comment Item -->
+<div class="flex gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0" data-alt="John Doe's avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpzmu3O4-vJaa0g6OkfPaabUc_GV97nQw8VoyBt-dtQClIKbGcxu4W9_zfEMvMD-EbWAF4Tzl8bV-gkelAVpODtO1jV1F6WpD034DDdagrYMCkde6WDGot51tTVqvswQ5CIXSNw8jeSw6VPKqboAFZs9QBrpKxg90GSzj13Rww__I3V8I8b4lJU1hJ_iEWxLAmQaz9tywEq0S59s17-I4sUrYJTP9QcFXDuvWoXPnlVrG0RQoKBn8KlZxc-FrRalFywzkDTE3t1aO5");'></div>
+<div class="flex-1">
+<div class="rounded-lg bg-gray-100 dark:bg-[#232f48] px-4 py-2">
+<div class="flex items-center justify-between mb-1">
+<p class="font-bold text-sm text-gray-800 dark:text-white">John Doe</p>
+<p class="text-xs text-gray-500 dark:text-[#92a4c9]">Oct 27, 2023</p>
+</div>
+<p class="text-sm text-gray-600 dark:text-[#e0e0e0]">Inspected the site. It's a worn-out washer. Parts have been ordered.</p>
+</div>
+</div>
+</div>
+<!-- Comment Input -->
+<div class="flex items-start gap-3 pt-4 border-t border-gray-200 dark:border-[#232f48]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuDiQZZJgsY5zQ4kazEOpLz98XFRjlW4-ZCJlB0JBbbOt1m05e_vVw_VQvz4ltPfw-oW11QVbiPb4B1zwLrgVvCShPvU4jGDkgeNbD9ZBrL3wjrayU-0sBFKvB1UhRxOjt6QOCn5iXJ5Lb254HRj6fNmPkDTAnzsp3xfU9jyekn-x5-t6EzCCs0PZcYBNa3zl4EW17zC3C1ef4v3su0U3g-7BeaHwq0yoU_SLNX0hBHEfVnBJm6fV1sfA1vdGChWjtUqsdty9vxHdq");'></div>
+<div class="flex-1">
+<textarea class="w-full rounded-lg border-gray-300 dark:border-[#324467] bg-white dark:bg-[#101622] text-gray-800 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#92a4c9] text-sm focus:border-primary focus:ring-primary" placeholder="Add an update..." rows="3"></textarea>
+<button class="mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">Submit Update</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
