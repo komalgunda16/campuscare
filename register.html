@@ -10,9 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- 
+      This import map tells the browser where to find the Firebase modules.
+      This allows us to use "bare" imports like `import { ... } from "firebase/app"`
+    -->
+    <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+        "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+        "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js",
+        "firebase/storage": "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"
+      }
+    }
+    </script>
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -58,7 +70,7 @@
 
             <!-- Registration Form -->
             <div class="bg-white dark:bg-[#182131] rounded-xl shadow-lg border border-border-light dark:border-border-dark">
-                <form id="registration-form" action="#" method="POST">
+                <form id="registration-form">
                     <div class="p-6 sm:p-8 space-y-6">
                         <!-- Full Name -->
                         <div>
@@ -105,9 +117,9 @@
         </div>
     </div>
     <!-- Firebase Configuration -->
-    <script src="firebase-options.js"></script>
+    <script type="module" src="firebase-options.js"></script>
     <!-- Registration Logic -->
-    <script src="js/register.js" defer></script>
+    <script type="module" src="register.js"></script>
 </body>
 
 </html>
