@@ -15,16 +15,7 @@
       This import map tells the browser where to find the Firebase modules.
       This allows us to use "bare" imports like `import { ... } from "firebase/app"`
     -->
-    <script type="importmap">
-    {
-      "imports": {
-        "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
-        "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
-        "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js",
-        "firebase/storage": "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"
-      }
-    }
-    </script>
+    
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -51,7 +42,6 @@
         }
     </style>
 </head>
-
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
     <div class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
         <div class="w-full max-w-md">
@@ -86,6 +76,32 @@
                                 class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500" />
                         </div>
 
+                        <!-- Role Selection -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Role</label>
+                            <div class="flex items-center gap-6">
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="radio" name="role" value="student" checked class="form-radio text-primary border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary h-4 w-4">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Student</span>
+                                </label>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="radio" name="role" value="hod" class="form-radio text-primary border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary h-4 w-4">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">HOD</span>
+                                </label>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="radio" name="role" value="maintenance" class="form-radio text-primary border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary h-4 w-4">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Maintenance</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Department Selection -->
+                        <div>
+                            <label for="department" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Department</label>
+                            <input type="text" name="department" id="department" placeholder="e.g. Computer Science" required
+                                class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500" />
+                        </div>
+
                         <!-- Password -->
                         <div>
                             <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
@@ -116,8 +132,6 @@
             </p>
         </div>
     </div>
-    <!-- Firebase Configuration -->
-    <script type="module" src="firebase-options.js"></script>
     <!-- Registration Logic -->
     <script type="module" src="register.js"></script>
 </body>
