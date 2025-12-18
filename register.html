@@ -133,7 +133,21 @@
         </div>
     </div>
     <!-- Registration Logic -->
-    <script type="module" src="register.js"></script>
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const role = formData.get('role');
+
+            if (role === 'maintenance') {
+                window.location.href = 'maintenance_dashboard.html';
+            } else if (role === 'student') {
+                window.location.href = 'user_dashboard.html';
+            } else {
+                window.location.href = 'Dashboard.html';
+            }
+        });
+    </script>
 </body>
 
 </html>
