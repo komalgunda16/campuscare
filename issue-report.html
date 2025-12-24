@@ -62,7 +62,7 @@
                     <!-- Form Container -->
                     <div
                         class="bg-white dark:bg-gray-800/50 rounded-xl shadow-sm border border-border-light dark:border-gray-700">
-                        <form action="#" method="POST">
+                        <form id="issue-form" action="#" method="POST" enctype="multipart/form-data">
                             <div class="p-6 sm:p-8">
                                 <!-- Section Header -->
                                 <h2
@@ -73,21 +73,17 @@
                                     <label class="flex flex-col">
                                         <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">What type
                                             of issue is it?</p>
-                                        <select
-                                            class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-400 px-3 text-base font-normal leading-normal">
-                                            <option value="">Select issue type</option>
-                                            <option value="lighting">Lighting</option>
-                                            <option value="plumbing">Plumbing</option>
-                                            <option value="furniture">Furniture</option>
-                                            <option value="hvac">HVAC (Fan/AC/Heating)</option>
-                                            <option value="other">Other</option>
-                                        </select>
+                                        <input type="text"
+                                            name="issueType"
+                                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-400 px-3 text-base font-normal leading-normal"
+                                            placeholder="e.g., Lighting" />
                                     </label>
                                     <!-- Location Input -->
                                     <label class="flex flex-col">
                                         <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">Where is
                                             the issue located?</p>
                                         <input
+                                            name="location"
                                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-400 px-3 text-base font-normal leading-normal"
                                             placeholder="e.g., Room 301, Library Entrance" value="" />
                                     </label>
@@ -96,6 +92,7 @@
                                         <p class="text-sm font-medium leading-normal pb-2 dark:text-gray-300">Please
                                             describe the problem in detail.</p>
                                         <textarea
+                                            name="description"
                                             class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-text-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary dark:focus:border-primary min-h-32 placeholder:text-gray-400 p-3 text-base font-normal leading-normal"
                                             placeholder="Describe the issue here..."></textarea>
                                     </label>
@@ -140,7 +137,7 @@
                     </div>
                     <!-- Success Message Example -->
                     <div
-                        class="mt-8 p-4 rounded-lg bg-success/10 border border-success/30 flex items-start gap-3 hidden">
+                        id="success-message" class="mt-8 p-4 rounded-lg bg-success/10 border border-success/30 flex items-start gap-3 hidden">
                         <span class="material-symbols-outlined text-success mt-1">task_alt</span>
                         <div>
                             <p class="font-bold text-success">Success!</p>
@@ -151,6 +148,7 @@
             </main>
         </div>
     </div>
+    <script type="module" src="./submit-issue.js"></script>
 </body>
 
 </html>
