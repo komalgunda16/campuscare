@@ -87,6 +87,9 @@
             <h1 class="text-white text-sm font-medium leading-normal">Admin User</h1>
             <p class="text-gray-400 text-xs font-normal leading-normal">admin@university.edu</p>
           </div>
+          <button id="btn-logout" class="text-gray-400 hover:text-white transition-colors ml-auto" title="Sign Out">
+            <span class="material-symbols-outlined">logout</span>
+          </button>
         </div>
       </div>
     </aside>
@@ -326,6 +329,18 @@
       </div>
     </main>
   </div>
+  <script type="module">
+    import { auth } from "./firebase-options.js";
+    import { signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+    document.getElementById('btn-logout').addEventListener('click', () => {
+        signOut(auth).then(() => {
+            window.location.href = 'login.html';
+        }).catch((error) => {
+            console.error('Sign out error', error);
+        });
+    });
+  </script>
 </body>
 
 </html>

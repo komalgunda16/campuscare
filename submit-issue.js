@@ -1,4 +1,4 @@
-import { app, db } from "../firebase-options.js";
+import { app, db, auth } from "./firebase-options.js";
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
@@ -30,6 +30,11 @@ if (form) {
                 throw new Error("Please fill in all required fields.");
             }
 
+            const user = auth.currentUser;
+            if (!user) {
+                throw new Error("You must be logged in to submit a report.");
+            }
+
             let imageUrl = null;
 
             // Upload file to Firebase Storage if present
@@ -46,7 +51,9 @@ if (form) {
                 description: description,
                 imageUrl: imageUrl,
                 status: 'new',
-                createdAt: serverTimestamp()
+                createdAt: serverTimestamp(),
+                userId: user.uid,
+                reporterName: user.displayName || user.email || 'Anonymous'
             });
 
             // Reset form and show success message

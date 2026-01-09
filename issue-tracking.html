@@ -74,22 +74,17 @@
           <!-- Breadcrumbs & Page Heading -->
           <div>
             <div class="flex flex-wrap gap-2 mb-4">
-              <a class="text-gray-500 dark:text-[#92a4c9] text-sm font-medium leading-normal" href="#">All Issues</a>
+              <a class="text-gray-500 dark:text-[#92a4c9] text-sm font-medium leading-normal" href="user_dashboard.html">My Dashboard</a>
               <span class="text-gray-500 dark:text-[#92a4c9] text-sm font-medium leading-normal">/</span>
-              <span class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Issue #12345</span>
+              <span class="text-gray-800 dark:text-white text-sm font-medium leading-normal" id="breadcrumb-id">Issue #...</span>
             </div>
             <div class="flex flex-wrap items-start justify-between gap-4">
               <div class="flex flex-col gap-2">
                 <h1
-                  class="text-gray-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
-                  Issue #12345 - Leaking Faucet in Library Restroom</h1>
-                <p class="text-gray-600 dark:text-[#92a4c9] text-base font-normal leading-normal">A detailed overview of
-                  the reported maintenance issue.</p>
+                  class="text-gray-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]" id="issue-title">
+                  Loading...</h1>
+                <p class="text-gray-600 dark:text-[#92a4c9] text-base font-normal leading-normal" id="issue-desc-short">Loading details...</p>
               </div>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-[#232f48] text-gray-800 dark:text-white text-sm font-bold leading-normal tracking-[0.015em] border border-gray-200 dark:border-white/10 shadow-sm">
-                <span class="truncate">Edit Issue</span>
-              </button>
             </div>
           </div>
           <!-- Main Content Grid -->
@@ -100,9 +95,9 @@
                 <div class="flex flex-col gap-6">
                   <div class="flex items-center gap-3">
                     <span
-                      class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                      <span class="material-symbols-outlined text-base">plumbing</span>
-                      Plumbing
+                      class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary" id="issue-type-badge">
+                      <span class="material-symbols-outlined text-base">build</span>
+                      ...
                     </span>
                   </div>
                   <!-- Metadata List -->
@@ -112,14 +107,14 @@
                         class="material-symbols-outlined text-gray-400 dark:text-[#92a4c9] mt-0.5">location_on</span>
                       <div>
                         <p class="text-gray-500 dark:text-[#92a4c9]">Location</p>
-                        <p class="text-gray-800 dark:text-white font-medium">Main Library, 2nd Floor, Men's Restroom</p>
+                        <p class="text-gray-800 dark:text-white font-medium" id="issue-location">...</p>
                       </div>
                     </div>
                     <div class="flex items-start gap-3">
                       <span class="material-symbols-outlined text-gray-400 dark:text-[#92a4c9] mt-0.5">person</span>
                       <div>
                         <p class="text-gray-500 dark:text-[#92a4c9]">Reported By</p>
-                        <p class="text-gray-800 dark:text-white font-medium">Sarah Jenkins</p>
+                        <p class="text-gray-800 dark:text-white font-medium" id="issue-reporter">...</p>
                       </div>
                     </div>
                     <div class="flex items-start gap-3">
@@ -127,7 +122,7 @@
                         class="material-symbols-outlined text-gray-400 dark:text-[#92a4c9] mt-0.5">calendar_today</span>
                       <div>
                         <p class="text-gray-500 dark:text-[#92a4c9]">Date Reported</p>
-                        <p class="text-gray-800 dark:text-white font-medium">Oct 26, 2023</p>
+                        <p class="text-gray-800 dark:text-white font-medium" id="issue-date">...</p>
                       </div>
                     </div>
                   </div>
@@ -135,23 +130,13 @@
                   <!-- Description -->
                   <div>
                     <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Description</h3>
-                    <p class="text-gray-600 dark:text-[#92a4c9] leading-relaxed">The faucet on the second sink from the
-                      left is continuously dripping, even when turned off completely. It seems to be a steady drip,
-                      about one drop per second. This has been happening for the last couple of days. There is a small
-                      puddle forming on the counter as a result.</p>
+                    <p class="text-gray-600 dark:text-[#92a4c9] leading-relaxed" id="issue-description">...</p>
                   </div>
                   <!-- Image Gallery -->
                   <div>
                     <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3">Attached Images</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                      <div class="aspect-video w-full rounded-lg bg-center bg-no-repeat bg-cover"
-                        data-alt="Leaking faucet with water dripping"
-                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIA3xhSE36LvUv13c7rOLtaefJSJ6nWqOYiPVpnDtXEtV2069Dtuw26Y4rb4rpugKYizwWZv5n2B7fIWjYzsOSF0KLFpbswURatE5XTNE4lUXgOqoowDFvm3JBWEDILfzXDMOjvNgJE0X4NAnN6GgGQqO37s1DaSk__vuro9B2LWdn-RZU89aLvlNrg0lc-du_Swz0qEoQxwJgPpRmgFESEg41Dv8rqnhR7FXt0Ly8gjW85zL4ETz7cPnV4yfM0dbkd51h10WLB3_w')">
-                      </div>
-                      <div class="aspect-video w-full rounded-lg bg-center bg-no-repeat bg-cover"
-                        data-alt="Close up of faucet handle"
-                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKCZxddDxFbRXVAb1HIu9BfAYC5jKQZSJsYtrpbnwdUIenWqUqO9FHqMLfaLUu_FRAqcQRoFFe5Pe1_QEM03ZvEsjyV40LptAVs-vGuGON5Y7O7W1_s6gmDDHL0Qihlk9dfbR722hgtwI2sIXk0io3Q6RMhBFrExCzi4pA8-sleSVcIHxHZ0y6YMna4w_Hd_Hkj8KrBOWnsTnS03afY_L2l9KDEDAMWNwdr4Z3kAz56AVtNqeHPLzFAmoUUqLZuTm5_oQohZ85-q5y')">
-                      </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" id="issue-images">
+                      <!-- Images will be injected here -->
                     </div>
                   </div>
                 </div>
@@ -162,79 +147,17 @@
               <!-- Status Stepper -->
               <div class="rounded-xl border border-gray-200 dark:border-[#232f48] bg-white dark:bg-[#111722] p-6">
                 <h3 class="text-base font-bold text-gray-900 dark:text-white mb-6">Issue Status</h3>
-                <div class="relative flex flex-col gap-8 pl-4">
-                  <!-- Timeline line -->
-                  <div class="absolute left-6 top-2 h-full w-0.5 bg-gray-200 dark:bg-[#232f48]"></div>
-                  <!-- Reported Step -->
-                  <div class="relative flex items-start gap-4">
-                    <div
-                      class="z-10 flex size-5 items-center justify-center rounded-full bg-primary ring-4 ring-white dark:ring-[#111722] mt-0.5">
-                      <span class="material-symbols-outlined text-xs text-white">check</span>
-                    </div>
-                    <div>
-                      <p class="font-bold text-primary">Reported</p>
-                      <p class="text-xs text-gray-500 dark:text-[#92a4c9]">Oct 26, 2023</p>
-                    </div>
-                  </div>
-                  <!-- In Progress Step -->
-                  <div class="relative flex items-start gap-4">
-                    <div
-                      class="z-10 flex size-5 items-center justify-center rounded-full bg-primary ring-4 ring-white dark:ring-[#111722] mt-0.5">
-                      <span class="material-symbols-outlined text-xs text-white">autorenew</span>
-                    </div>
-                    <div>
-                      <p class="font-bold text-primary">In Progress</p>
-                      <p class="text-xs text-gray-500 dark:text-[#92a4c9]">Oct 27, 2023</p>
-                    </div>
-                  </div>
-                  <!-- Resolved Step -->
-                  <div class="relative flex items-start gap-4">
-                    <div
-                      class="z-10 flex size-5 items-center justify-center rounded-full bg-gray-300 dark:bg-[#232f48] ring-4 ring-white dark:ring-[#111722] mt-0.5">
-                    </div>
-                    <div>
-                      <p class="font-medium text-gray-500 dark:text-[#92a4c9]">Resolved</p>
-                      <p class="text-xs text-gray-500 dark:text-[#92a4c9]">Pending</p>
-                    </div>
-                  </div>
+                <div class="relative flex flex-col gap-8 pl-4" id="status-stepper">
+                  <!-- Dynamic Stepper -->
                 </div>
               </div>
               <!-- Comments/Updates Feed -->
               <div class="rounded-xl border border-gray-200 dark:border-[#232f48] bg-white dark:bg-[#111722] p-6">
                 <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4">Updates &amp; Comments</h3>
-                <div class="flex flex-col gap-4">
-                  <!-- Comment Item -->
-                  <div class="flex gap-3">
-                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0"
-                      data-alt="John Doe's avatar"
-                      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpzmu3O4-vJaa0g6OkfPaabUc_GV97nQw8VoyBt-dtQClIKbGcxu4W9_zfEMvMD-EbWAF4Tzl8bV-gkelAVpODtO1jV1F6WpD034DDdagrYMCkde6WDGot51tTVqvswQ5CIXSNw8jeSw6VPKqboAFZs9QBrpKxg90GSzj13Rww__I3V8I8b4lJU1hJ_iEWxLAmQaz9tywEq0S59s17-I4sUrYJTP9QcFXDuvWoXPnlVrG0RQoKBn8KlZxc-FrRalFywzkDTE3t1aO5");'>
-                    </div>
-                    <div class="flex-1">
-                      <div class="rounded-lg bg-gray-100 dark:bg-[#232f48] px-4 py-2">
-                        <div class="flex items-center justify-between mb-1">
-                          <p class="font-bold text-sm text-gray-800 dark:text-white">John Doe</p>
-                          <p class="text-xs text-gray-500 dark:text-[#92a4c9]">Oct 27, 2023</p>
-                        </div>
-                        <p class="text-sm text-gray-600 dark:text-[#e0e0e0]">Inspected the site. It's a worn-out washer.
-                          Parts have been ordered.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Comment Input -->
-                  <div class="flex items-start gap-3 pt-4 border-t border-gray-200 dark:border-[#232f48]">
-                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0"
-                      data-alt="User avatar image"
-                      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuDiQZZJgsY5zQ4kazEOpLz98XFRjlW4-ZCJlB0JBbbOt1m05e_vVw_VQvz4ltPfw-oW11QVbiPb4B1zwLrgVvCShPvU4jGDkgeNbD9ZBrL3wjrayU-0sBFKvB1UhRxOjt6QOCn5iXJ5Lb254HRj6fNmPkDTAnzsp3xfU9jyekn-x5-t6EzCCs0PZcYBNa3zl4EW17zC3C1ef4v3su0U3g-7BeaHwq0yoU_SLNX0hBHEfVnBJm6fV1sfA1vdGChWjtUqsdty9vxHdq");'>
-                    </div>
-                    <div class="flex-1">
-                      <textarea
-                        class="w-full rounded-lg border-gray-300 dark:border-[#324467] bg-white dark:bg-[#101622] text-gray-800 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#92a4c9] text-sm focus:border-primary focus:ring-primary"
-                        placeholder="Add an update..." rows="3"></textarea>
-                      <button
-                        class="mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">Submit
-                        Update</button>
-                    </div>
-                  </div>
+                <div class="flex flex-col gap-4" id="comments-list">
+                  <!-- Comments will be injected here -->
+                  <p class="text-sm text-gray-500 italic">No updates yet.</p>
+                </div>
                 </div>
               </div>
             </div>
@@ -243,6 +166,170 @@
       </main>
     </div>
   </div>
+
+  <script type="module">
+    import { db, auth } from "./firebase-options.js";
+    import { doc, getDoc, onSnapshot, collection, addDoc, query, orderBy, Timestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const params = new URLSearchParams(window.location.search);
+    const issueId = params.get('id');
+
+    if (!issueId) {
+      document.getElementById('issue-title').textContent = "Error: No Issue ID";
+    } else {
+      const docRef = doc(db, "issues", issueId);
+
+      // Real-time listener for Issue Details (Status changes)
+      onSnapshot(docRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          renderIssue(data, docSnap.id);
+        } else {
+          document.getElementById('issue-title').textContent = "Issue not found";
+        }
+      });
+
+      // Real-time listener for Comments
+      const commentsRef = collection(db, "issues", issueId, "comments");
+      const q = query(commentsRef, orderBy("createdAt", "asc"));
+      
+      onSnapshot(q, (snapshot) => {
+        const commentsList = document.getElementById('comments-list');
+        if (snapshot.empty) {
+            commentsList.innerHTML = '<p class="text-sm text-gray-500 italic">No updates yet.</p>';
+        } else {
+            let html = '';
+            snapshot.forEach(doc => {
+                const c = doc.data();
+                const date = c.createdAt ? new Date(c.createdAt.seconds * 1000).toLocaleString() : '';
+                html += `
+                  <div class="flex gap-3">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0 bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                        ${c.authorName ? c.authorName[0] : 'U'}
+                    </div>
+                    <div class="flex-1">
+                      <div class="rounded-lg bg-gray-100 dark:bg-[#232f48] px-4 py-2">
+                        <div class="flex items-center justify-between mb-1">
+                          <p class="font-bold text-sm text-gray-800 dark:text-white">${c.authorName || 'User'}</p>
+                          <p class="text-xs text-gray-500 dark:text-[#92a4c9]">${date}</p>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-[#e0e0e0]">${c.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                `;
+            });
+            commentsList.innerHTML = html;
+        }
+      });
+    }
+
+    function renderIssue(data, id) {
+      document.getElementById('breadcrumb-id').textContent = `Issue #${id.slice(0,6)}`;
+      document.getElementById('issue-title').textContent = `Issue #${id.slice(0,6)} - ${data.issueType || 'Issue'}`;
+      document.getElementById('issue-desc-short').textContent = data.description ? data.description.substring(0, 100) + '...' : 'No description';
+      
+      // Type Badge
+      const type = data.issueType || 'General';
+      let icon = 'build';
+      if (type.toLowerCase().includes('water') || type.toLowerCase().includes('plumb')) icon = 'water_drop';
+      else if (type.toLowerCase().includes('electric')) icon = 'lightbulb';
+      
+      document.getElementById('issue-type-badge').innerHTML = `
+        <span class="material-symbols-outlined text-base">${icon}</span> ${type}
+      `;
+
+      document.getElementById('issue-location').textContent = data.location || 'Unknown';
+      document.getElementById('issue-reporter').textContent = data.reporterName || 'Anonymous';
+      
+      let dateStr = 'N/A';
+      if (data.createdAt && data.createdAt.seconds) {
+          dateStr = new Date(data.createdAt.seconds * 1000).toLocaleDateString();
+      }
+      document.getElementById('issue-date').textContent = dateStr;
+      document.getElementById('issue-description').textContent = data.description || 'No description provided.';
+
+      // Images
+      const imagesContainer = document.getElementById('issue-images');
+      if (data.imageUrl) {
+        imagesContainer.innerHTML = `
+          <div class="aspect-video w-full rounded-lg bg-center bg-no-repeat bg-cover border border-gray-200 dark:border-gray-700"
+            style="background-image: url('${data.imageUrl}')">
+          </div>
+        `;
+      } else {
+        imagesContainer.innerHTML = '<p class="text-gray-500 text-sm col-span-3">No images attached.</p>';
+      }
+
+      // Stepper Logic
+      renderStepper(data.status, dateStr);
+    }
+
+    function renderStepper(status, dateStr) {
+      const stepper = document.getElementById('status-stepper');
+      const steps = [
+        { label: 'Reported', date: dateStr, active: true },
+        { label: 'In Progress', date: 'Pending', active: false },
+        { label: 'Resolved', date: 'Pending', active: false }
+      ];
+
+      // Map granular status to steps
+      let currentStepIndex = 0;
+      let progressLabel = 'In Progress';
+
+      if (status === 'Acknowledged') {
+        currentStepIndex = 1;
+        progressLabel = 'Acknowledged';
+      } else if (status === 'Team Contacted') {
+        currentStepIndex = 1;
+        progressLabel = 'Team Contacted';
+      } else if (status === 'Dispatched' || status === 'In Progress') {
+        currentStepIndex = 1;
+        progressLabel = 'Dispatched';
+      } else if (status === 'Resolved') {
+        currentStepIndex = 2;
+        progressLabel = 'Dispatched'; // Previous step completed
+      }
+
+      // Update steps array based on status
+      if (currentStepIndex >= 1) {
+        steps[1].active = true;
+        steps[1].label = progressLabel;
+        steps[1].date = 'Active';
+      }
+      if (currentStepIndex >= 2) {
+        steps[2].active = true;
+        steps[2].date = new Date().toLocaleDateString();
+      }
+
+      let html = `<div class="absolute left-6 top-2 h-full w-0.5 bg-gray-200 dark:bg-[#232f48]"></div>`;
+      
+      steps.forEach((step, index) => {
+        const isCompleted = index <= currentStepIndex;
+        const isCurrent = index === currentStepIndex;
+        
+        let circleClass = isCompleted 
+          ? 'bg-primary ring-white dark:ring-[#111722]' 
+          : 'bg-gray-300 dark:bg-[#232f48] ring-white dark:ring-[#111722]';
+        
+        let icon = isCompleted ? '<span class="material-symbols-outlined text-xs text-white">check</span>' : '';
+        if (isCurrent && status !== 'Resolved') icon = '<span class="material-symbols-outlined text-xs text-white">autorenew</span>';
+
+        html += `
+          <div class="relative flex items-start gap-4">
+            <div class="z-10 flex size-5 items-center justify-center rounded-full ring-4 mt-0.5 ${circleClass}">
+              ${icon}
+            </div>
+            <div>
+              <p class="font-bold ${isCompleted ? 'text-primary' : 'text-gray-500 dark:text-[#92a4c9]'}">${step.label}</p>
+              <p class="text-xs text-gray-500 dark:text-[#92a4c9]">${step.date}</p>
+            </div>
+          </div>
+        `;
+      });
+      stepper.innerHTML = html;
+    }
+  </script>
 </body>
 
 </html>

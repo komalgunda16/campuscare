@@ -67,6 +67,9 @@
                                 data-alt="User avatar image"
                                 style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbQIN9bFinKVmiUHDcYmxOXUEL-sDNBgGjQabBhqMjqGegtsFUnJvPw-HhL30nY8OD1s_ELWIYTmJMOESKHAdQRo77ubDnxi0JIcW7noPyFFqoY0mZRi-A_BJnkTIgyCfP8fM-UtJRchvKVbkwwSbS2UY7AHboOmcApUdDMLant35tLYZSYsd5TaODc3hLMqm9qXTAXXfcr2R4Q6YSX8m0MpjyUTCIxNplHR9vjjrjYCfvqq4HhaGvnmOZgWG029XAGdgLvzJRQR4");'>
                             </div>
+                            <button id="btn-logout" class="text-gray-500 hover:text-primary transition-colors" title="Sign Out">
+                                <span class="material-symbols-outlined">logout</span>
+                            </button>
                         </div>
                     </header>
                     <main class="flex flex-col flex-1 p-4 sm:p-8 bg-white dark:bg-[#182131] rounded-b-xl">
@@ -84,19 +87,19 @@
                                 class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
                                 <p class="text-[#1F2937] dark:text-white text-base font-medium leading-normal">Pending
                                 </p>
-                                <p class="text-[#F97316] tracking-light text-3xl font-bold leading-tight">5</p>
+                                <p class="text-[#F97316] tracking-light text-3xl font-bold leading-tight" id="stat-pending">--</p>
                             </div>
                             <div
                                 class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
                                 <p class="text-[#1F2937] dark:text-white text-base font-medium leading-normal">In
                                     Progress</p>
-                                <p class="text-[#135bec] tracking-light text-3xl font-bold leading-tight">2</p>
+                                <p class="text-[#135bec] tracking-light text-3xl font-bold leading-tight" id="stat-progress">--</p>
                             </div>
                             <div
                                 class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
                                 <p class="text-[#1F2937] dark:text-white text-base font-medium leading-normal">Resolved
                                 </p>
-                                <p class="text-[#10B981] tracking-light text-3xl font-bold leading-tight">18</p>
+                                <p class="text-[#10B981] tracking-light text-3xl font-bold leading-tight" id="stat-resolved">--</p>
                             </div>
                         </div>
                         <h2
@@ -115,93 +118,11 @@
                                 </div>
                             </label>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
-                            <!-- Report Card 1 -->
-                            <div
-                                class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-background-light dark:bg-background-dark transition-shadow hover:shadow-md cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="flex items-center justify-center size-12 rounded-lg bg-yellow-500/10 text-yellow-500">
-                                        <span class="material-symbols-outlined text-3xl">lightbulb</span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="font-bold text-lg text-[#1F2937] dark:text-white">Flickering Light</p>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">#MAINT-123</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Location: Science Building, Room 301
-                                </p>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span
-                                        class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/50 px-3 py-1 text-xs font-semibold text-orange-600 dark:text-orange-400">Pending</span>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">Oct 26, 2023</p>
-                                </div>
-                            </div>
-                            <!-- Report Card 2 -->
-                            <div
-                                class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-background-light dark:bg-background-dark transition-shadow hover:shadow-md cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="flex items-center justify-center size-12 rounded-lg bg-blue-500/10 text-blue-500">
-                                        <span class="material-symbols-outlined text-3xl">water_drop</span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="font-bold text-lg text-[#1F2937] dark:text-white">Leaky Faucet</p>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">#MAINT-122</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Location: Arts Hall, 2nd Floor
-                                    Restroom</p>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span
-                                        class="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/50 px-3 py-1 text-xs font-semibold text-blue-600 dark:text-blue-400">In
-                                        Progress</span>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">Oct 25, 2023</p>
-                                </div>
-                            </div>
-                            <!-- Report Card 3 -->
-                            <div
-                                class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-background-light dark:bg-background-dark transition-shadow hover:shadow-md cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="flex items-center justify-center size-12 rounded-lg bg-green-500/10 text-green-500">
-                                        <span class="material-symbols-outlined text-3xl">air</span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="font-bold text-lg text-[#1F2937] dark:text-white">AC Not Cooling</p>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">#MAINT-119</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Location: Library, Main Hall</p>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span
-                                        class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-semibold text-green-600 dark:text-green-400">Resolved</span>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">Oct 22, 2023</p>
-                                </div>
-                            </div>
-                            <!-- Report Card 4 -->
-                            <div
-                                class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-background-light dark:bg-background-dark transition-shadow hover:shadow-md cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="flex items-center justify-center size-12 rounded-lg bg-purple-500/10 text-purple-500">
-                                        <span class="material-symbols-outlined text-3xl">wifi</span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="font-bold text-lg text-[#1F2937] dark:text-white">Wi-Fi Disconnecting
-                                        </p>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">#MAINT-115</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Location: Dormitory B, Common Area
-                                </p>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span
-                                        class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-semibold text-green-600 dark:text-green-400">Resolved</span>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">Oct 20, 2023</p>
-                                </div>
-                            </div>
-                            <!-- Empty State Card (Example) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4" id="reports-grid">
+                            <div class="col-span-full text-center py-10 text-gray-500">Loading your reports...</div>
+                        </div>
+                        <!-- Empty State Template (Hidden) -->
+                        <template id="empty-state-template">
                             <div
                                 class="md:col-span-2 lg:col-span-3 flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 p-10 mt-6 text-center bg-background-light dark:bg-background-dark">
                                 <span
@@ -210,16 +131,123 @@
                                 <p class="text-sm text-gray-500 dark:text-gray-400 max-w-sm">Looks like everything is in
                                     order! If you spot an issue on campus, be the first to report it.</p>
                                 <button
+                                    onclick="window.location.href='issue-report.html'"
                                     class="mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-primary/90">
                                     <span class="truncate">Report Your First Issue</span>
                                 </button>
                             </div>
-                        </div>
+                        </template>
                     </main>
                 </div>
             </div>
         </div>
     </div>
+
+    <script type="module">
+        import { db, auth } from "./firebase-options.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+        import { signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+        import { collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        const reportsGrid = document.getElementById('reports-grid');
+        const emptyStateTemplate = document.getElementById('empty-state-template');
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    // Fetch issues reported by this user
+                    // Note: Ensure you have a composite index for 'userId' and 'createdAt' if using orderBy
+                    // For now, we'll fetch and sort client side if index is missing, or just fetch.
+                    const q = query(collection(db, "issues"), where("userId", "==", user.uid));
+                    const querySnapshot = await getDocs(q);
+
+                    if (querySnapshot.empty) {
+                        reportsGrid.innerHTML = '';
+                        reportsGrid.appendChild(emptyStateTemplate.content.cloneNode(true));
+                        updateStats(0, 0, 0);
+                        return;
+                    }
+
+                    let pending = 0;
+                    let inProgress = 0;
+                    let resolved = 0;
+                    let html = '';
+
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const id = doc.id;
+                        const status = data.status || 'Open';
+                        
+                        // Stats
+                        if (status === 'Resolved') resolved++;
+                        else if (status === 'In Progress' || status === 'Dispatched' || status === 'Team Contacted') inProgress++;
+                        else pending++;
+
+                        // Styles
+                        let statusColor = 'bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400';
+                        let icon = 'lightbulb';
+                        let iconBg = 'bg-yellow-500/10 text-yellow-500';
+
+                        if (status === 'Resolved') {
+                            statusColor = 'bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400';
+                        } else if (status === 'In Progress' || status === 'Dispatched') {
+                            statusColor = 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400';
+                        }
+
+                        const type = (data.issueType || 'General').toLowerCase();
+                        if (type.includes('water') || type.includes('plumb')) { icon = 'water_drop'; iconBg = 'bg-blue-500/10 text-blue-500'; }
+                        else if (type.includes('air') || type.includes('hvac')) { icon = 'air'; iconBg = 'bg-green-500/10 text-green-500'; }
+                        else if (type.includes('wifi') || type.includes('net')) { icon = 'wifi'; iconBg = 'bg-purple-500/10 text-purple-500'; }
+
+                        const dateStr = data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+
+                        html += `
+                            <div onclick="window.location.href='issue-tracking.html?id=${id}'"
+                                class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-background-light dark:bg-background-dark transition-shadow hover:shadow-md cursor-pointer">
+                                <div class="flex items-center gap-4">
+                                    <div class="flex items-center justify-center size-12 rounded-lg ${iconBg}">
+                                        <span class="material-symbols-outlined text-3xl">${icon}</span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <p class="font-bold text-lg text-[#1F2937] dark:text-white truncate">${data.issueType || 'Issue'}</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">#${id.slice(0,6)}</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 truncate">Location: ${data.location || 'Unknown'}</p>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${statusColor}">${status}</span>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">${dateStr}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    reportsGrid.innerHTML = html;
+                    updateStats(pending, inProgress, resolved);
+
+                } catch (error) {
+                    console.error("Error fetching reports:", error);
+                    reportsGrid.innerHTML = `<div class="col-span-full text-center text-red-500">Error loading reports: ${error.message}</div>`;
+                }
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.href = 'login.html';
+            }).catch((error) => {
+                console.error('Sign out error', error);
+            });
+        });
+
+        function updateStats(pending, progress, resolved) {
+            document.getElementById('stat-pending').textContent = pending;
+            document.getElementById('stat-progress').textContent = progress;
+            document.getElementById('stat-resolved').textContent = resolved;
+        }
+    </script>
 </body>
 
 </html>
