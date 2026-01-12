@@ -62,7 +62,7 @@
             }
 
             try {
-                const docRef = doc(db, "issues", issueId);
+                const docRef = doc(db, "maintenance_issues", issueId);
                 const docSnap = await getDoc(docRef);
 
                 if (!docSnap.exists()) {
@@ -125,7 +125,7 @@
                                 <span class="material-symbols-outlined">contact_phone</span> Contact Team
                             </button>
                             <button id="btn-dispatch" class="flex items-center justify-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-lg font-medium hover:bg-yellow-200 dark:hover:bg-yellow-900/50 transition-colors">
-                                <span class="material-symbols-outlined">local_shipping</span> Dispatch
+                                <span class="material-symbols-outlined">local_shipping</span> Dispatch Team
                             </button>
                             <button id="btn-resolve" class="flex items-center justify-center gap-2 px-4 py-2 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300 rounded-lg font-medium hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                                 <span class="material-symbols-outlined">check_circle</span> Resolve

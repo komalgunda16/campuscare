@@ -177,7 +177,7 @@
     if (!issueId) {
       document.getElementById('issue-title').textContent = "Error: No Issue ID";
     } else {
-      const docRef = doc(db, "issues", issueId);
+      const docRef = doc(db, "maintenance_issues", issueId);
 
       // Real-time listener for Issue Details (Status changes)
       onSnapshot(docRef, (docSnap) => {
@@ -224,7 +224,7 @@
       });
     }
 
-    function renderIssue(data, id) {
+    async function renderIssue(data, id) {
       document.getElementById('breadcrumb-id').textContent = `Issue #${id.slice(0,6)}`;
       document.getElementById('issue-title').textContent = `Issue #${id.slice(0,6)} - ${data.issueType || 'Issue'}`;
       document.getElementById('issue-desc-short').textContent = data.description ? data.description.substring(0, 100) + '...' : 'No description';
@@ -240,7 +240,17 @@
       `;
 
       document.getElementById('issue-location').textContent = data.location || 'Unknown';
-      document.getElementById('issue-reporter').textContent = data.reporterName || 'Anonymous';
+      
+      let reporterName = data.reporterName || 'Anonymous';
+      if (!data.reporterName && data.userId) {
+        try {
+          const userSnap = await getDoc(doc(db, "users", data.userId));
+          if (userSnap.exists()) {
+            reporterName = userSnap.data().fullName || 'Anonymous';
+          }
+        } catch (e) { console.error("Error fetching reporter:", e); }
+      }
+      document.getElementById('issue-reporter').textContent = reporterName;
       
       let dateStr = 'N/A';
       if (data.createdAt && data.createdAt.seconds) {

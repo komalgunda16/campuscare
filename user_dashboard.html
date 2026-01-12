@@ -1,253 +1,137 @@
 <!DOCTYPE html>
-
 <html class="dark" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>CampusCare Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>My Dashboard</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <style type="text/tailwindcss">
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 24
-        }
-    </style>
-    <script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
+                        "primary": "#007BFF",
+                        "background-light": "#f8f9fa",
                         "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#182131",
                     },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    fontFamily: { "display": ["Inter", "sans-serif"] },
                 },
             },
         }
     </script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-[#1F2937] dark:text-gray-200">
-    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-        <div class="layout-container flex h-full grow flex-col">
-            <div class="flex flex-1 justify-center py-5 sm:px-4 md:px-10 lg:px-20 xl:px-40">
-                <div class="layout-content-container flex flex-col w-full max-w-5xl flex-1">
-                    <header
-                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-4 sm:px-8 py-4 bg-white dark:bg-[#182131] rounded-t-xl">
-                        <div class="flex items-center gap-4 text-primary">
-                            <div class="size-6 text-primary">
-                                <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
-                                        fill="currentColor"></path>
-                                </svg>
-                            </div>
-                            <h2
-                                class="text-xl font-bold leading-tight tracking-[-0.015em] text-[#1F2937] dark:text-white">
-                                CampusCare</h2>
-                        </div>
-                        <div class="flex flex-1 justify-end items-center gap-4 sm:gap-6">
-                            <button
-                                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 sm:px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-primary/90">
-                                <span class="truncate">Report New Issue</span>
-                            </button>
-                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-                                data-alt="User avatar image"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbQIN9bFinKVmiUHDcYmxOXUEL-sDNBgGjQabBhqMjqGegtsFUnJvPw-HhL30nY8OD1s_ELWIYTmJMOESKHAdQRo77ubDnxi0JIcW7noPyFFqoY0mZRi-A_BJnkTIgyCfP8fM-UtJRchvKVbkwwSbS2UY7AHboOmcApUdDMLant35tLYZSYsd5TaODc3hLMqm9qXTAXXfcr2R4Q6YSX8m0MpjyUTCIxNplHR9vjjrjYCfvqq4HhaGvnmOZgWG029XAGdgLvzJRQR4");'>
-                            </div>
-                            <button id="btn-logout" class="text-gray-500 hover:text-primary transition-colors" title="Sign Out">
-                                <span class="material-symbols-outlined">logout</span>
-                            </button>
-                        </div>
-                    </header>
-                    <main class="flex flex-col flex-1 p-4 sm:p-8 bg-white dark:bg-[#182131] rounded-b-xl">
-                        <div class="flex flex-wrap justify-between items-start gap-3 mb-6">
-                            <div class="flex min-w-72 flex-col gap-2">
-                                <p
-                                    class="text-[#1F2937] dark:text-white text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em]">
-                                    Dashboard</p>
-                                <p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Welcome
-                                    back! Here's an overview of your maintenance reports.</p>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                            <div
-                                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
-                                <p class="text-[#1F2937] dark:text-white text-base font-medium leading-normal">Pending
-                                </p>
-                                <p class="text-[#F97316] tracking-light text-3xl font-bold leading-tight" id="stat-pending">--</p>
-                            </div>
-                            <div
-                                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
-                                <p class="text-[#1F2937] dark:text-white text-base font-medium leading-normal">In
-                                    Progress</p>
-                                <p class="text-[#135bec] tracking-light text-3xl font-bold leading-tight" id="stat-progress">--</p>
-                            </div>
-                            <div
-                                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
-                                <p class="text-[#1F2937] dark:text-white text-base font-medium leading-normal">Resolved
-                                </p>
-                                <p class="text-[#10B981] tracking-light text-3xl font-bold leading-tight" id="stat-resolved">--</p>
-                            </div>
-                        </div>
-                        <h2
-                            class="text-[#1F2937] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-2">
-                            My Recent Reports</h2>
-                        <div class="py-3">
-                            <label class="flex flex-col min-w-40 h-12 w-full">
-                                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-                                    <div
-                                        class="text-gray-500 dark:text-gray-400 flex border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
-                                        <span class="material-symbols-outlined text-2xl">search</span>
-                                    </div>
-                                    <input
-                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#1F2937] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:border-primary/50 h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
-                                        placeholder="Search by keyword, location, or status..." value="" />
-                                </div>
-                            </label>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4" id="reports-grid">
-                            <div class="col-span-full text-center py-10 text-gray-500">Loading your reports...</div>
-                        </div>
-                        <!-- Empty State Template (Hidden) -->
-                        <template id="empty-state-template">
-                            <div
-                                class="md:col-span-2 lg:col-span-3 flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 p-10 mt-6 text-center bg-background-light dark:bg-background-dark">
-                                <span
-                                    class="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">inbox</span>
-                                <h3 class="font-bold text-lg text-[#1F2937] dark:text-white">No Reports Yet</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 max-w-sm">Looks like everything is in
-                                    order! If you spot an issue on campus, be the first to report it.</p>
-                                <button
-                                    onclick="window.location.href='issue-report.html'"
-                                    class="mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-primary/90">
-                                    <span class="truncate">Report Your First Issue</span>
-                                </button>
-                            </div>
-                        </template>
-                    </main>
-                </div>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-gray-200 antialiased h-screen flex overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex z-20">
+        <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-800">
+            <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Campus<span class="text-primary">Care</span></span>
+        </div>
+        <div class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+                <span class="material-icons text-xl">dashboard</span>
+                My Issues
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover transition-colors" href="issue-report.html">
+                <span class="material-icons text-xl">add_circle</span>
+                Report Issue
+            </a>
+        </div>
+        <div class="p-4 border-t border-gray-200 dark:border-gray-800">
+             <button id="btn-logout" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                <span class="material-icons">logout</span>
+                Sign Out
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <header class="h-16 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+            <h1 class="text-xl font-bold text-gray-900 dark:text-white">My Reported Issues</h1>
+            <a href="issue-report.html" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                New Report
+            </a>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+                    <thead class="bg-gray-50 dark:bg-gray-900/50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Location</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="issues-table-body" class="divide-y divide-gray-200 dark:divide-gray-800">
+                        <tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Loading...</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
+    </main>
 
     <script type="module">
         import { db, auth } from "./firebase-options.js";
-        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-        import { signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-        import { collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { collection, getDocs, query, where, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-        const reportsGrid = document.getElementById('reports-grid');
-        const emptyStateTemplate = document.getElementById('empty-state-template');
+        const tbody = document.getElementById('issues-table-body');
 
-        onAuthStateChanged(auth, async (user) => {
+        onAuthStateChanged(auth, (user) => {
             if (user) {
-                try {
-                    // Fetch issues reported by this user
-                    // Note: Ensure you have a composite index for 'userId' and 'createdAt' if using orderBy
-                    // For now, we'll fetch and sort client side if index is missing, or just fetch.
-                    const q = query(collection(db, "issues"), where("userId", "==", user.uid));
-                    const querySnapshot = await getDocs(q);
-
-                    if (querySnapshot.empty) {
-                        reportsGrid.innerHTML = '';
-                        reportsGrid.appendChild(emptyStateTemplate.content.cloneNode(true));
-                        updateStats(0, 0, 0);
-                        return;
-                    }
-
-                    let pending = 0;
-                    let inProgress = 0;
-                    let resolved = 0;
-                    let html = '';
-
-                    querySnapshot.forEach((doc) => {
-                        const data = doc.data();
-                        const id = doc.id;
-                        const status = data.status || 'Open';
-                        
-                        // Stats
-                        if (status === 'Resolved') resolved++;
-                        else if (status === 'In Progress' || status === 'Dispatched' || status === 'Team Contacted') inProgress++;
-                        else pending++;
-
-                        // Styles
-                        let statusColor = 'bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400';
-                        let icon = 'lightbulb';
-                        let iconBg = 'bg-yellow-500/10 text-yellow-500';
-
-                        if (status === 'Resolved') {
-                            statusColor = 'bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400';
-                        } else if (status === 'In Progress' || status === 'Dispatched') {
-                            statusColor = 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400';
-                        }
-
-                        const type = (data.issueType || 'General').toLowerCase();
-                        if (type.includes('water') || type.includes('plumb')) { icon = 'water_drop'; iconBg = 'bg-blue-500/10 text-blue-500'; }
-                        else if (type.includes('air') || type.includes('hvac')) { icon = 'air'; iconBg = 'bg-green-500/10 text-green-500'; }
-                        else if (type.includes('wifi') || type.includes('net')) { icon = 'wifi'; iconBg = 'bg-purple-500/10 text-purple-500'; }
-
-                        const dateStr = data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
-
-                        html += `
-                            <div onclick="window.location.href='issue-tracking.html?id=${id}'"
-                                class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-background-light dark:bg-background-dark transition-shadow hover:shadow-md cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <div class="flex items-center justify-center size-12 rounded-lg ${iconBg}">
-                                        <span class="material-symbols-outlined text-3xl">${icon}</span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="font-bold text-lg text-[#1F2937] dark:text-white truncate">${data.issueType || 'Issue'}</p>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">#${id.slice(0,6)}</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 truncate">Location: ${data.location || 'Unknown'}</p>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${statusColor}">${status}</span>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">${dateStr}</p>
-                                </div>
-                            </div>
-                        `;
-                    });
-
-                    reportsGrid.innerHTML = html;
-                    updateStats(pending, inProgress, resolved);
-
-                } catch (error) {
-                    console.error("Error fetching reports:", error);
-                    reportsGrid.innerHTML = `<div class="col-span-full text-center text-red-500">Error loading reports: ${error.message}</div>`;
-                }
+                loadUserIssues(user.uid);
             } else {
-                window.location.href = 'login.html';
+                // Redirect to login if not authenticated
+                // window.location.href = 'login.html';
+                tbody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Please log in to view your issues.</td></tr>';
             }
         });
 
-        document.getElementById('btn-logout').addEventListener('click', () => {
-            signOut(auth).then(() => {
-                window.location.href = 'login.html';
-            }).catch((error) => {
-                console.error('Sign out error', error);
-            });
-        });
+        async function loadUserIssues(userId) {
+            try {
+                // Query issues specifically for this user
+                const q = query(
+                    collection(db, "maintenance_issues"), 
+                    where("userId", "==", userId)
+                );
+                
+                const querySnapshot = await getDocs(q);
 
-        function updateStats(pending, progress, resolved) {
-            document.getElementById('stat-pending').textContent = pending;
-            document.getElementById('stat-progress').textContent = progress;
-            document.getElementById('stat-resolved').textContent = resolved;
+                if (querySnapshot.empty) {
+                    tbody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">No issues reported yet.</td></tr>';
+                    return;
+                }
+
+                let html = '';
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const date = data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+                    
+                    let statusClass = 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300';
+                    if(data.status === 'Resolved') statusClass = 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300';
+                    
+                    html += `<tr onclick="window.location.href='issue-tracking.html?id=${doc.id}'" class="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"><td class="px-6 py-4"><div class="text-sm font-medium text-gray-900 dark:text-white">${data.issueType || 'Issue'}</div><div class="text-sm text-gray-500 truncate max-w-xs">${data.description}</div></td><td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${data.location}</td><td class="px-6 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">${data.status}</span></td><td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${date}</td></tr>`;
+                });
+                tbody.innerHTML = html;
+
+            } catch (error) {
+                console.error("Error:", error);
+                tbody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-red-500">Error loading issues.</td></tr>`;
+            }
         }
+
+        document.getElementById('btn-logout').addEventListener('click', () => signOut(auth).then(() => window.location.href = 'login.html'));
     </script>
 </body>
-
 </html>

@@ -277,7 +277,7 @@
                 let inProgress = 0;
                 let totalResolved = 0;
                 
-                const q = query(collection(db, "issues"));
+                const q = query(collection(db, "maintenance_issues"));
                 const querySnapshot = await getDocs(q);
 
                 if (querySnapshot.empty) {

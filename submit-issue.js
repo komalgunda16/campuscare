@@ -1,77 +1,79 @@
-import { app, db, auth } from "./firebase-options.js";
-import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { firebaseConfig } from "./firebase-options.js";
 
-const storage = getStorage(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+const IMGBB_API_KEY = '1bd43b95e32fb9b2d8471a6a67f986d8';
+const IMGBB_UPLOAD_URL = 'https://api.imgbb.com/1/upload';
 
 const form = document.getElementById('issue-form');
+const fileInput = document.getElementById('file-upload');
 const successMessage = document.getElementById('success-message');
 
 if (form) {
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    form.addEventListener('submit', handleFormSubmit);
+}
 
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerText;
+async function handleFormSubmit(event) {
+    event.preventDefault();
 
-        // Disable button and show loading state
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerText;
 
-        try {
-            const formData = new FormData(form);
-            const issueType = formData.get('issueType');
-            const location = formData.get('location');
-            const description = formData.get('description');
-            const file = formData.get('file-upload');
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Submitting...';
 
-            // Basic validation
-            if (!issueType || !location || !description) {
-                throw new Error("Please fill in all required fields.");
-            }
+    try {
+        const formData = new FormData(form);
+        const imageFile = fileInput.files[0];
+        let imageUrl = null;
 
-            const user = auth.currentUser;
-            if (!user) {
-                throw new Error("You must be logged in to submit a report.");
-            }
+        // 1. Upload Image to ImgBB if a file is selected
+        if (imageFile) {
+            const imgbbData = new FormData();
+            imgbbData.append('image', imageFile);
 
-            let imageUrl = null;
-
-            // Upload file to Firebase Storage if present
-            if (file && file.size > 0) {
-                const storageRef = ref(storage, `issues/${Date.now()}_${file.name}`);
-                const snapshot = await uploadBytes(storageRef, file);
-                imageUrl = await getDownloadURL(snapshot.ref);
-            }
-
-            // Add document to Firestore 'issues' collection
-            await addDoc(collection(db, "issues"), {
-                issueType: issueType,
-                location: location,
-                description: description,
-                imageUrl: imageUrl,
-                status: 'new',
-                createdAt: serverTimestamp(),
-                userId: user.uid,
-                reporterName: user.displayName || user.email || 'Anonymous'
+            const response = await fetch(`${IMGBB_UPLOAD_URL}?key=${IMGBB_API_KEY}`, {
+                method: 'POST',
+                body: imgbbData
             });
 
-            // Reset form and show success message
-            form.reset();
-            if (successMessage) {
-                successMessage.classList.remove('hidden');
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                }, 5000);
+            const result = await response.json();
+            if (result.success) {
+                imageUrl = result.data.url;
+            } else {
+                throw new Error('Image upload failed: ' + (result.error?.message || 'Unknown error'));
             }
-
-        } catch (error) {
-            console.error("Error submitting report: ", error);
-            alert(error.message || "There was an error submitting your report.");
-        } finally {
-            // Restore button state
-            submitBtn.disabled = false;
-            submitBtn.innerText = originalBtnText;
         }
-    });
+
+        // 2. Store data in Firestore
+        const docRef = await addDoc(collection(db, "maintenance_issues"), {
+            userId: auth.currentUser ? auth.currentUser.uid : null,
+            issueType: formData.get('issueType'),
+            location: formData.get('location'),
+            description: formData.get('description'),
+            imageUrl: imageUrl,
+            status: 'new',
+            createdAt: serverTimestamp()
+        });
+
+        // 3. Show Success Message
+        form.reset();
+        successMessage.classList.remove('hidden');
+        successMessage.querySelector('p.text-sm').innerText = `Your report has been submitted. Tracking ID: #${docRef.id}`;
+        successMessage.scrollIntoView({ behavior: 'smooth' });
+
+    } catch (error) {
+        console.error("Error submitting report: ", error);
+        alert("Error submitting report: " + error.message);
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+    }
 }
