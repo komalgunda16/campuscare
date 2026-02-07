@@ -3,331 +3,332 @@
 <html class="dark" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Maintenance Crew Dashboard</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Tailwind Config -->
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#182131", // Slightly lighter than background-dark for cards
-                        "surface-hover": "#1f2937",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <style>
-        /* Custom scrollbar for better look in dark mode */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>Maintenance Crew Dashboard</title>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com" rel="preconnect" />
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+		rel="stylesheet" />
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+		rel="stylesheet" />
+	<!-- Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+	<!-- Tailwind Config -->
+	<script id="tailwind-config">
+		tailwind.config = {
+			darkMode: "class",
+			theme: {
+				extend: {
+					colors: {
+						"primary": "#135bec",
+						"background-light": "#f6f6f8",
+						"background-dark": "#101622",
+						"surface-light": "#ffffff",
+						"surface-dark": "#182131", // Slightly lighter than background-dark for cards
+						"surface-hover": "#1f2937",
+					},
+					fontFamily: {
+						"display": ["Inter", "sans-serif"]
+					},
+					borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+				},
+			},
+		}
+	</script>
+	<style>
+		/* Custom scrollbar for better look in dark mode */
+		::-webkit-scrollbar {
+			width: 8px;
+			height: 8px;
+		}
 
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
+		::-webkit-scrollbar-track {
+			background: transparent;
+		}
 
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
-        }
+		::-webkit-scrollbar-thumb {
+			background: #374151;
+			border-radius: 4px;
+		}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #135bec;
-        }
-    </style>
+		::-webkit-scrollbar-thumb:hover {
+			background: #135bec;
+		}
+	</style>
 </head>
 
 <body
-    class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-gray-200 antialiased h-screen flex overflow-hidden">
-    <!-- Sidebar -->
-    <aside
-        class="w-64 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex z-20">
-        <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-800">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-xl">M
-                </div>
-                <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Maint<span
-                        class="text-primary">Crew</span></span>
-            </div>
-        </div>
-        <div class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-            <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 mt-2">Main Menu</p>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
-                <span class="material-icons text-xl">dashboard</span>
-                Dashboard
-            </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
-                href="#">
-                <span class="material-icons text-xl">assignment</span>
-                My Tasks
-                <span class="ml-auto bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full">3</span>
-            </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
-                href="#">
-                <span class="material-icons text-xl">history</span>
-                History
-            </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
-                href="#">
-                <span class="material-icons text-xl">people</span>
-                Crew Members
-            </a>
-            <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 mt-6">Settings</p>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
-                href="#">
-                <span class="material-icons text-xl">settings</span>
-                Preferences
-            </a>
-        </div>
-        <div class="p-4 border-t border-gray-200 dark:border-gray-800">
-            <div class="flex items-center gap-3">
-                <img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary object-cover"
-                    data-alt="Portrait of a smiling man with glasses"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0y9ORCANElOtF5hzWIIA7N8MET7c82Du6TZQM_o_JY-x8uz7Bk3pJJtxxQg4lduLkfsLMjLJHY_8Gsh2Mi6DloK9pj6FV_IaIAakJ_IIiU0Amdmzk__2YZ3qPg4uovs50m63sdyGIZaULysahOiRng8iMw1yu_QadBjmUUkE0Ekw0oX7cwKnAcVvKW6LaLnR0ZTt6gyLMeltm9Z_qYkXysnm6FemQZCN3VTctq0DZGRAd8wz4SXzUgn7pgYjlirKdOj8pnNo4O0g" />
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Alex Morgan</p>
-                    <p class="text-xs text-gray-500 truncate">Lead Technician</p>
-                </div>
-                <button id="btn-logout" class="text-gray-400 hover:text-gray-500" title="Sign Out">
-                    <span class="material-icons">logout</span>
-                </button>
-            </div>
-        </div>
-    </aside>
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
-        <!-- Top Navigation (Mobile Toggle + Search) -->
-        <header
-            class="h-16 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 sm:px-6 lg:px-8">
-            <button class="md:hidden text-gray-500 hover:text-gray-700">
-                <span class="material-icons">menu</span>
-            </button>
-            <div class="flex-1 flex justify-between items-center max-w-7xl mx-auto w-full">
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">Dashboard / Active Tickets
-                </h1>
-                <div class="flex items-center gap-4">
-                    <div class="relative hidden sm:block">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span class="material-icons text-gray-400 text-lg">search</span>
-                        </span>
-                        <input
-                            class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-background-dark text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out"
-                            placeholder="Search tickets..." type="text" />
-                    </div>
-                    <button class="relative p-2 text-gray-400 hover:text-gray-500 focus:outline-none">
-                        <span class="material-icons">notifications</span>
-                        <span
-                            class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-surface-dark"></span>
-                    </button>
-                </div>
-            </div>
-        </header>
-        <!-- Main Scrollable Area -->
-        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-background-light dark:bg-background-dark">
-            <!-- Stats Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <!-- Card 1 -->
-                <div
-                    class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Open</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-open">--</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                        <span class="material-icons text-blue-500">assignment</span>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div
-                    class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Urgent Issues</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-urgent">--</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center">
-                        <span class="material-icons text-red-500">warning</span>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div
-                    class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">In Progress</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-progress">--</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center">
-                        <span class="material-icons text-yellow-500">engineering</span>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div
-                    class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Resolved</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-resolved">--</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <span class="material-icons text-primary">check_circle</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Filter Bar -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
-                    <button
-                        class="bg-gray-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">All
-                        Tickets</button>
-                    <button
-                        class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">New</button>
-                    <button
-                        class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">In
-                        Progress</button>
-                    <button
-                        class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">Resolved</button>
-                </div>
-                <div class="flex items-center gap-2">
-                    <select
-                        class="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-lg bg-white dark:bg-surface-dark text-gray-900 dark:text-white">
-                        <option>Sort by Date: Newest</option>
-                        <option>Sort by Priority</option>
-                        <option>Sort by Location</option>
-                    </select>
-                    <button
-                        class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition shadow-lg shadow-primary/20">
-                        <span class="material-icons text-lg">add</span>
-                        <span class="hidden sm:inline">Report Issue</span>
-                    </button>
-                </div>
-            </div>
-            <!-- Data Table -->
-            <div
-                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
-                        <thead class="bg-gray-50 dark:bg-gray-900/50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24"
-                                    scope="col">ID</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    scope="col">Item &amp; Description</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    scope="col">Location</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    scope="col">Reported</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    scope="col">Priority</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    scope="col">Status</th>
-                                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="issues-table-body" class="divide-y divide-gray-200 dark:divide-gray-800 bg-surface-light dark:bg-surface-dark">
-                            <tr>
-                                <td colspan="7" class="px-6 py-4 text-center text-gray-500">Loading issues...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </main>
-    <!-- Detailed View Modal Overlay (Hidden by default, structure for potential use) -->
-    <!-- <div class="fixed inset-0 bg-black/50 z-50 hidden" aria-hidden="true"></div> -->
-    
-    <script type="module">
-        import { db, auth } from "./firebase-options.js";
-        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-        import { signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+	class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-gray-200 antialiased h-screen flex overflow-hidden">
+	<!-- Sidebar -->
+	<aside
+		class="w-64 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex z-20">
+		<div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-800">
+			<div class="flex items-center gap-2">
+				<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-xl">M
+				</div>
+				<span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Maint<span
+						class="text-primary">Crew</span></span>
+			</div>
+		</div>
+		<div class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+			<p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 mt-2">Main Menu</p>
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+				<span class="material-icons text-xl">dashboard</span>
+				Dashboard
+			</a>
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
+				href="#">
+				<span class="material-icons text-xl">assignment</span>
+				My Tasks
+				<span class="ml-auto bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+			</a>
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
+				href="#">
+				<span class="material-icons text-xl">history</span>
+				History
+			</a>
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
+				href="#">
+				<span class="material-icons text-xl">people</span>
+				Crew Members
+			</a>
+			<p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 mt-6">Settings</p>
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover hover:text-gray-900 dark:hover:text-white transition-colors"
+				href="#">
+				<span class="material-icons text-xl">settings</span>
+				Preferences
+			</a>
+		</div>
+		<div class="p-4 border-t border-gray-200 dark:border-gray-800">
+			<div class="flex items-center gap-3">
+				<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary object-cover"
+					data-alt="Portrait of a smiling man with glasses"
+					src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0y9ORCANElOtF5hzWIIA7N8MET7c82Du6TZQM_o_JY-x8uz7Bk3pJJtxxQg4lduLkfsLMjLJHY_8Gsh2Mi6DloK9pj6FV_IaIAakJ_IIiU0Amdmzk__2YZ3qPg4uovs50m63sdyGIZaULysahOiRng8iMw1yu_QadBjmUUkE0Ekw0oX7cwKnAcVvKW6LaLnR0ZTt6gyLMeltm9Z_qYkXysnm6FemQZCN3VTctq0DZGRAd8wz4SXzUgn7pgYjlirKdOj8pnNo4O0g" />
+				<div class="flex-1 min-w-0">
+					<p class="text-sm font-medium text-gray-900 dark:text-white truncate">Alex Morgan</p>
+					<p class="text-xs text-gray-500 truncate">Lead Technician</p>
+				</div>
+				<button id="btn-logout" class="text-gray-400 hover:text-gray-500" title="Sign Out">
+					<span class="material-icons">logout</span>
+				</button>
+			</div>
+		</div>
+	</aside>
+	<!-- Main Content -->
+	<main class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+		<!-- Top Navigation (Mobile Toggle + Search) -->
+		<header
+			class="h-16 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+			<button class="md:hidden text-gray-500 hover:text-gray-700">
+				<span class="material-icons">menu</span>
+			</button>
+			<div class="flex-1 flex justify-between items-center max-w-7xl mx-auto w-full">
+				<h1 class="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">Dashboard / Active Tickets
+				</h1>
+				<div class="flex items-center gap-4">
+					<div class="relative hidden sm:block">
+						<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+							<span class="material-icons text-gray-400 text-lg">search</span>
+						</span>
+						<input
+							class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-background-dark text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out"
+							placeholder="Search tickets..." type="text" />
+					</div>
+					<button class="relative p-2 text-gray-400 hover:text-gray-500 focus:outline-none">
+						<span class="material-icons">notifications</span>
+						<span
+							class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-surface-dark"></span>
+					</button>
+				</div>
+			</div>
+		</header>
+		<!-- Main Scrollable Area -->
+		<div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-background-light dark:bg-background-dark">
+			<!-- Stats Cards -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+				<!-- Card 1 -->
+				<div
+					class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
+					<div>
+						<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Open</p>
+						<p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-open">--</p>
+					</div>
+					<div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center">
+						<span class="material-icons text-blue-500">assignment</span>
+					</div>
+				</div>
+				<!-- Card 2 -->
+				<div
+					class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
+					<div>
+						<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Urgent Issues</p>
+						<p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-urgent">--</p>
+					</div>
+					<div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center">
+						<span class="material-icons text-red-500">warning</span>
+					</div>
+				</div>
+				<!-- Card 3 -->
+				<div
+					class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
+					<div>
+						<p class="text-sm font-medium text-gray-500 dark:text-gray-400">In Progress</p>
+						<p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-progress">--</p>
+					</div>
+					<div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+						<span class="material-icons text-yellow-500">engineering</span>
+					</div>
+				</div>
+				<!-- Card 4 -->
+				<div
+					class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-800 flex items-center justify-between">
+					<div>
+						<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Resolved</p>
+						<p class="text-3xl font-bold text-gray-900 dark:text-white mt-1" id="stat-resolved">--</p>
+					</div>
+					<div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+						<span class="material-icons text-primary">check_circle</span>
+					</div>
+				</div>
+			</div>
+			<!-- Filter Bar -->
+			<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+				<div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+					<button
+						class="bg-gray-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">All
+						Tickets</button>
+					<button
+						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">New</button>
+					<button
+						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">In
+						Progress</button>
+					<button
+						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">Resolved</button>
+				</div>
+				<div class="flex items-center gap-2">
+					<select
+						class="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-lg bg-white dark:bg-surface-dark text-gray-900 dark:text-white">
+						<option>Sort by Date: Newest</option>
+						<option>Sort by Priority</option>
+						<option>Sort by Location</option>
+					</select>
+					<button
+						class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition shadow-lg shadow-primary/20">
+						<span class="material-icons text-lg">add</span>
+						<span class="hidden sm:inline">Report Issue</span>
+					</button>
+				</div>
+			</div>
+			<!-- Data Table -->
+			<div
+				class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+				<div class="overflow-x-auto">
+					<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+						<thead class="bg-gray-50 dark:bg-gray-900/50">
+							<tr>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24"
+									scope="col">ID</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+									Item &amp; Description</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+									Location</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+									Reported</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+									Priority</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+									Status</th>
+								<th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+									Actions</th>
+							</tr>
+						</thead>
+						<tbody id="issues-table-body"
+							class="divide-y divide-gray-200 dark:divide-gray-800 bg-surface-light dark:bg-surface-dark">
+							<tr>
+								<td colspan="7" class="px-6 py-4 text-center text-gray-500">Loading issues...</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Detailed View Modal Overlay (Hidden by default, structure for potential use) -->
+	<!-- <div class="fixed inset-0 bg-black/50 z-50 hidden" aria-hidden="true"></div> -->
 
-        const tbody = document.getElementById('issues-table-body');
+	<script type="module">
+		import { db, auth } from "./firebase-options.js";
+		import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+		import { signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-        async function loadIssues() {
-            try {
-                tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">Loading issues...</td></tr>';
-                
-                // Reset stats
-                let totalOpen = 0;
-                let urgent = 0;
-                let inProgress = 0;
-                let totalResolved = 0;
-                
-                const q = query(collection(db, "maintenance_issues"));
-                const querySnapshot = await getDocs(q);
+		const tbody = document.getElementById('issues-table-body');
 
-                if (querySnapshot.empty) {
-                    tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">No issues found.</td></tr>';
-                    updateStats(0, 0, 0, 0);
-                    return;
-                }
+		async function loadIssues() {
+			try {
+				tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">Loading issues...</td></tr>';
 
-                let html = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const id = doc.id;
-                    const shortId = id.slice(0, 6);
-                    const type = data.issueType || 'General';
-                    const description = data.description || 'No description provided';
-                    const location = data.location || 'Unknown';
-                    const status = data.status || 'Open';
-                    const priority = data.priority || 'Medium';
-                    
-                    let dateStr = 'N/A';
-                    if (data.createdAt && data.createdAt.seconds) {
-                        dateStr = new Date(data.createdAt.seconds * 1000).toLocaleDateString();
-                    } else if (data.date) {
-                        dateStr = data.date;
-                    }
+				// Reset stats
+				let totalOpen = 0;
+				let urgent = 0;
+				let inProgress = 0;
+				let totalResolved = 0;
 
-                    // Calculate Stats
-                    if (status !== 'Resolved') totalOpen++;
-                    if (priority === 'High' && status !== 'Resolved') urgent++;
-                    if (status === 'In Progress') inProgress++;
-                    if (status === 'Resolved') totalResolved++;
+				const q = query(collection(db, "maintenance_issues"));
+				const querySnapshot = await getDocs(q);
 
-                    // Status Styles
-                    let statusClass = 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300';
-                    if (status === 'Resolved') statusClass = 'bg-primary/20 text-green-400 border border-primary/20';
-                    else if (status === 'In Progress') statusClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300';
+				if (querySnapshot.empty) {
+					tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">No issues found.</td></tr>';
+					updateStats(0, 0, 0, 0);
+					return;
+				}
 
-                    // Priority Styles
-                    let priorityClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300';
-                    if (priority === 'High') priorityClass = 'bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300';
-                    else if (priority === 'Low') priorityClass = 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300';
+				let html = '';
+				querySnapshot.forEach((doc) => {
+					const data = doc.data();
+					const id = doc.id;
+					const shortId = id.slice(0, 6);
+					const type = data.issueType || 'General';
+					const description = data.description || 'No description provided';
+					const location = data.location || 'Unknown';
+					const status = data.status || 'Open';
+					const priority = data.priority || 'Medium';
 
-                    // Icon
-                    let icon = 'build';
-                    const typeLower = type.toLowerCase();
-                    if (typeLower.includes('water') || typeLower.includes('plumb')) icon = 'water_drop';
-                    else if (typeLower.includes('electric') || typeLower.includes('light')) icon = 'lightbulb';
-                    else if (typeLower.includes('ac') || typeLower.includes('hvac')) icon = 'ac_unit';
+					let dateStr = 'N/A';
+					if (data.createdAt && data.createdAt.seconds) {
+						dateStr = new Date(data.createdAt.seconds * 1000).toLocaleDateString();
+					} else if (data.date) {
+						dateStr = data.date;
+					}
 
-                    html += `
+					// Calculate Stats
+					if (status !== 'Resolved') totalOpen++;
+					if (priority === 'High' && status !== 'Resolved') urgent++;
+					if (status === 'In Progress') inProgress++;
+					if (status === 'Resolved') totalResolved++;
+
+					// Status Styles
+					let statusClass = 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300';
+					if (status === 'Resolved') statusClass = 'bg-primary/20 text-green-400 border border-primary/20';
+					else if (status === 'In Progress') statusClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300';
+
+					// Priority Styles
+					let priorityClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300';
+					if (priority === 'High') priorityClass = 'bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300';
+					else if (priority === 'Low') priorityClass = 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300';
+
+					// Icon
+					let icon = 'build';
+					const typeLower = type.toLowerCase();
+					if (typeLower.includes('water') || typeLower.includes('plumb')) icon = 'water_drop';
+					else if (typeLower.includes('electric') || typeLower.includes('light')) icon = 'lightbulb';
+					else if (typeLower.includes('ac') || typeLower.includes('hvac')) icon = 'ac_unit';
+
+					html += `
                         <tr onclick="window.location.href='issue-detail.html?id=${id}'" class="group hover:bg-gray-50 dark:hover:bg-surface-hover transition-colors cursor-pointer border-l-4 border-transparent hover:border-primary">
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">#${shortId}</td>
                             <td class="px-6 py-4">
@@ -362,32 +363,32 @@
                             </td>
                         </tr>
                     `;
-                });
-                tbody.innerHTML = html;
-                updateStats(totalOpen, urgent, inProgress, totalResolved);
-            } catch (error) {
-                console.error("Error loading issues:", error);
-                tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-4 text-center text-red-500">Error: ${error.message}</td></tr>`;
-            }
-        }
+				});
+				tbody.innerHTML = html;
+				updateStats(totalOpen, urgent, inProgress, totalResolved);
+			} catch (error) {
+				console.error("Error loading issues:", error);
+				tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-4 text-center text-red-500">Error: ${error.message}</td></tr>`;
+			}
+		}
 
-        function updateStats(open, urgent, progress, resolved) {
-            document.getElementById('stat-open').textContent = open;
-            document.getElementById('stat-urgent').textContent = urgent;
-            document.getElementById('stat-progress').textContent = progress;
-            document.getElementById('stat-resolved').textContent = resolved;
-        }
-        
-        document.addEventListener('DOMContentLoaded', loadIssues);
+		function updateStats(open, urgent, progress, resolved) {
+			document.getElementById('stat-open').textContent = open;
+			document.getElementById('stat-urgent').textContent = urgent;
+			document.getElementById('stat-progress').textContent = progress;
+			document.getElementById('stat-resolved').textContent = resolved;
+		}
 
-        document.getElementById('btn-logout').addEventListener('click', () => {
-            signOut(auth).then(() => {
-                window.location.href = 'login.html';
-            }).catch((error) => {
-                console.error('Sign out error', error);
-            });
-        });
-    </script>
+		document.addEventListener('DOMContentLoaded', loadIssues);
+
+		document.getElementById('btn-logout').addEventListener('click', () => {
+			signOut(auth).then(() => {
+				window.location.href = 'login.html';
+			}).catch((error) => {
+				console.error('Sign out error', error);
+			});
+		});
+	</script>
 </body>
 
 </html>

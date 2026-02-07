@@ -2,136 +2,136 @@
 <html class="dark" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>My Dashboard</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#007BFF",
-                        "background-light": "#f8f9fa",
-                        "background-dark": "#101622",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#182131",
-                    },
-                    fontFamily: { "display": ["Inter", "sans-serif"] },
-                },
-            },
-        }
-    </script>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>My Dashboard</title>
+	<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+	<link href="https://fonts.googleapis.com" rel="preconnect" />
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<script id="tailwind-config">
+		tailwind.config = {
+			darkMode: "class",
+			theme: {
+				extend: {
+					colors: {
+						"primary": "#007BFF",
+						"background-light": "#f8f9fa",
+						"background-dark": "#101622",
+						"surface-light": "#ffffff",
+						"surface-dark": "#182131",
+					},
+					fontFamily: { "display": ["Inter", "sans-serif"] },
+				},
+			},
+		}
+	</script>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-gray-200 antialiased h-screen flex overflow-hidden">
-    <!-- Sidebar -->
-    <aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex z-20">
-        <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-800">
-            <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Campus<span class="text-primary">Care</span></span>
-        </div>
-        <div class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
-                <span class="material-icons text-xl">dashboard</span>
-                My Issues
-            </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover transition-colors" href="issue-report.html">
-                <span class="material-icons text-xl">add_circle</span>
-                Report Issue
-            </a>
-        </div>
-        <div class="p-4 border-t border-gray-200 dark:border-gray-800">
-             <button id="btn-logout" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                <span class="material-icons">logout</span>
-                Sign Out
-            </button>
-        </div>
-    </aside>
+	<!-- Sidebar -->
+	<aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex z-20">
+		<div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-800">
+			<span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Campus<span class="text-primary">Care</span></span>
+		</div>
+		<div class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+				<span class="material-icons text-xl">dashboard</span>
+				My Issues
+			</a>
+			<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-hover transition-colors" href="issue-report.html">
+				<span class="material-icons text-xl">add_circle</span>
+				Report Issue
+			</a>
+		</div>
+		<div class="p-4 border-t border-gray-200 dark:border-gray-800">
+			 <button id="btn-logout" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+				<span class="material-icons">logout</span>
+				Sign Out
+			</button>
+		</div>
+	</aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <header class="h-16 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 sm:px-6 lg:px-8">
-            <h1 class="text-xl font-bold text-gray-900 dark:text-white">My Reported Issues</h1>
-            <a href="issue-report.html" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-                New Report
-            </a>
-        </header>
+	<!-- Main Content -->
+	<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+		<header class="h-16 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+			<h1 class="text-xl font-bold text-gray-900 dark:text-white">My Reported Issues</h1>
+			<a href="issue-report.html" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+				New Report
+			</a>
+		</header>
 
-        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
-            <div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
-                    <thead class="bg-gray-50 dark:bg-gray-900/50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Location</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="issues-table-body" class="divide-y divide-gray-200 dark:divide-gray-800">
-                        <tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Loading...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main>
+		<div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+			<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+				<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+					<thead class="bg-gray-50 dark:bg-gray-900/50">
+						<tr>
+							<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue</th>
+							<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Location</th>
+							<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+							<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+						</tr>
+					</thead>
+					<tbody id="issues-table-body" class="divide-y divide-gray-200 dark:divide-gray-800">
+						<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Loading...</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
 
-    <script type="module">
-        import { db, auth } from "./firebase-options.js";
-        import { collection, getDocs, query, where, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+	<script type="module">
+		import { db, auth } from "./firebase-options.js";
+		import { collection, getDocs, query, where, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+		import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-        const tbody = document.getElementById('issues-table-body');
+		const tbody = document.getElementById('issues-table-body');
 
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                loadUserIssues(user.uid);
-            } else {
-                // Redirect to login if not authenticated
-                // window.location.href = 'login.html';
-                tbody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Please log in to view your issues.</td></tr>';
-            }
-        });
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				loadUserIssues(user.uid);
+			} else {
+				// Redirect to login if not authenticated
+				// window.location.href = 'login.html';
+				tbody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Please log in to view your issues.</td></tr>';
+			}
+		});
 
-        async function loadUserIssues(userId) {
-            try {
-                // Query issues specifically for this user
-                const q = query(
-                    collection(db, "maintenance_issues"), 
-                    where("userId", "==", userId)
-                );
-                
-                const querySnapshot = await getDocs(q);
+		async function loadUserIssues(userId) {
+			try {
+				// Query issues specifically for this user
+				const q = query(
+					collection(db, "maintenance_issues"), 
+					where("userId", "==", userId)
+				);
+				
+				const querySnapshot = await getDocs(q);
 
-                if (querySnapshot.empty) {
-                    tbody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">No issues reported yet.</td></tr>';
-                    return;
-                }
+				if (querySnapshot.empty) {
+					tbody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">No issues reported yet.</td></tr>';
+					return;
+				}
 
-                let html = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const date = data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
-                    
-                    let statusClass = 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300';
-                    if(data.status === 'Resolved') statusClass = 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300';
-                    
-                    html += `<tr onclick="window.location.href='issue-tracking.html?id=${doc.id}'" class="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"><td class="px-6 py-4"><div class="text-sm font-medium text-gray-900 dark:text-white">${data.issueType || 'Issue'}</div><div class="text-sm text-gray-500 truncate max-w-xs">${data.description}</div></td><td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${data.location}</td><td class="px-6 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">${data.status}</span></td><td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${date}</td></tr>`;
-                });
-                tbody.innerHTML = html;
+				let html = '';
+				querySnapshot.forEach((doc) => {
+					const data = doc.data();
+					const date = data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+					
+					let statusClass = 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300';
+					if(data.status === 'Resolved') statusClass = 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300';
+					
+					html += `<tr onclick="window.location.href='issue-tracking.html?id=${doc.id}'" class="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"><td class="px-6 py-4"><div class="text-sm font-medium text-gray-900 dark:text-white">${data.issueType || 'Issue'}</div><div class="text-sm text-gray-500 truncate max-w-xs">${data.description}</div></td><td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${data.location}</td><td class="px-6 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">${data.status}</span></td><td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${date}</td></tr>`;
+				});
+				tbody.innerHTML = html;
 
-            } catch (error) {
-                console.error("Error:", error);
-                tbody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-red-500">Error loading issues.</td></tr>`;
-            }
-        }
+			} catch (error) {
+				console.error("Error:", error);
+				tbody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-red-500">Error loading issues.</td></tr>`;
+			}
+		}
 
-        document.getElementById('btn-logout').addEventListener('click', () => signOut(auth).then(() => window.location.href = 'login.html'));
-    </script>
+		document.getElementById('btn-logout').addEventListener('click', () => signOut(auth).then(() => window.location.href = 'login.html'));
+	</script>
 </body>
 </html>

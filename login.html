@@ -1,123 +1,128 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Sign In - CampusCare</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "border-light": "#e5e7eb",
-                        "border-dark": "#374151",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>Sign In - CampusCare</title>
+	<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+	<script>
+		tailwind.config = {
+			darkMode: "class",
+			theme: {
+				extend: {
+					colors: {
+						"primary": "#135bec",
+						"background-light": "#f6f6f8",
+						"background-dark": "#101622",
+						"border-light": "#e5e7eb",
+						"border-dark": "#374151",
+					},
+					fontFamily: {
+						"display": ["Inter", "sans-serif"]
+					},
+					borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+				},
+			},
+		}
+	</script>
+	<style>
+		.material-symbols-outlined {
+			font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+		}
+	</style>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
-    <div class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        <div class="w-full max-w-md">
-            <!-- Logo and Heading -->
-            <div class="text-center mb-8">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="material-symbols-outlined text-primary text-4xl">build_circle</span>
-                    <h1 class="text-gray-900 dark:text-white text-2xl font-bold">CampusCare</h1>
-                </div>
-                <h2 class="text-gray-900 dark:text-white text-3xl font-bold tracking-tight">Sign in to your account</h2>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Don't have an account?
-                    <a href="register.html" class="font-medium text-primary hover:underline">Sign up</a>
-                </p>
-            </div>
+	<div class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+		<div class="w-full max-w-md">
+			<!-- Logo and Heading -->
+			<div class="text-center mb-8">
+				<div class="flex items-center justify-center gap-3 mb-4">
+					<span class="material-symbols-outlined text-primary text-4xl">build_circle</span>
+					<h1 class="text-gray-900 dark:text-white text-2xl font-bold">CampusCare</h1>
+				</div>
+				<h2 class="text-gray-900 dark:text-white text-3xl font-bold tracking-tight">Sign in to your account</h2>
+				<p class="text-gray-500 dark:text-gray-400 mt-2">
+					Don't have an account?
+					<a href="register.html" class="font-medium text-primary hover:underline">Sign up</a>
+				</p>
+			</div>
 
-            <!-- Login Form -->
-            <div class="bg-white dark:bg-[#182131] rounded-xl shadow-lg border border-border-light dark:border-border-dark">
-                <form id="login-form">
-                    <div class="p-6 sm:p-8 space-y-6">
-                        <!-- Email Address -->
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email address</label>
-                            <input type="email" name="email" id="email" placeholder="you@example.com" required
-                                class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500" />
-                        </div>
+			<!-- Login Form -->
+			<div class="bg-white dark:bg-[#182131] rounded-xl shadow-lg border border-border-light dark:border-border-dark">
+				<form id="login-form">
+					<div class="p-6 sm:p-8 space-y-6">
+						<!-- Email Address -->
+						<div>
+							<label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email
+								address</label>
+							<input type="email" name="email" id="email" placeholder="you@example.com" required
+								class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500" />
+						</div>
 
-                        <!-- Password -->
-                        <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" required
-                                class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500" />
-                        </div>
-                    </div>
+						<!-- Password -->
+						<div>
+							<label for="password"
+								class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
+							<input type="password" name="password" id="password" placeholder="••••••••" required
+								class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500" />
+						</div>
+					</div>
 
-                    <!-- Form Footer / Submit Button -->
-                    <div class="px-6 sm:px-8 pb-6 sm:pb-8">
-                        <button type="submit"
-                            class="w-full inline-flex justify-center items-center py-3 px-4 border border-transparent shadow-sm text-sm font-bold rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:ring-offset-background-dark transition-colors">
-                            Sign In
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<!-- Form Footer / Submit Button -->
+					<div class="px-6 sm:px-8 pb-6 sm:pb-8">
+						<button type="submit"
+							class="w-full inline-flex justify-center items-center py-3 px-4 border border-transparent shadow-sm text-sm font-bold rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:ring-offset-background-dark transition-colors">
+							Sign In
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-    <script type="module">
-        import { auth, db } from "./firebase-options.js";
-        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+	<script type="module">
+		import { auth, db } from "./firebase-options.js";
+		import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+		import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-        document.getElementById('login-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+		document.getElementById('login-form').addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
 
-            try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
+			try {
+				const userCredential = await signInWithEmailAndPassword(auth, email, password);
+				const user = userCredential.user;
 
-                // Fetch user role from Firestore
-                const docRef = doc(db, "users", user.uid);
-                const docSnap = await getDoc(docRef);
+				// Fetch user role from Firestore
+				const docRef = doc(db, "users", user.uid);
+				const docSnap = await getDoc(docRef);
 
-                if (docSnap.exists()) {
-                    const userData = docSnap.data();
-                    const role = userData.role;
+				if (docSnap.exists()) {
+					const userData = docSnap.data();
+					const role = userData.role;
 
-                    if (role === 'maintenance') {
-                        window.location.href = 'maintenance_dashboard.html';
-                    } else if (role === 'student') {
-                        window.location.href = 'user_dashboard.html';
-                    } else {
-                        window.location.href = 'Dashboard.html';
-                    }
-                } else {
-                    console.error("No such user document!");
-                    alert("User data not found.");
-                }
-            } catch (error) {
-                console.error("Login error:", error);
-                alert("Login failed: " + error.message);
-            }
-        });
-    </script>
+					if (role === 'maintenance') {
+						window.location.href = 'maintenance_dashboard.html';
+					} else if (role === 'student') {
+						window.location.href = 'user_dashboard.html';
+					} else {
+						window.location.href = 'Dashboard.html';
+					}
+				} else {
+					console.error("No such user document!");
+					alert("User data not found.");
+				}
+			} catch (error) {
+				console.error("Login error:", error);
+				alert("Login failed: " + error.message);
+			}
+		});
+	</script>
 </body>
+
 </html>
