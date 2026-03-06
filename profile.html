@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+			darkMode: "class",
+			theme: {
+				extend: {
+					colors: {
+						"primary": "#135bec",
+						"background-light": "#f6f6f8",
+						"background-dark": "#101622",
+						"surface-light": "#ffffff",
+						"surface-dark": "#182131",
+						"border-light": "#e5e7eb",
+						"border-dark": "#374151",
+					},
+					fontFamily: { "display": ["Inter", "sans-serif"] },
+					borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+				},
+			},
+		}
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="min-h-screen w-full flex flex-col items-center py-10 px-4">
+        <div class="w-full max-w-2xl">
+            <!-- Back Button -->
+            <a href="javascript:history.back()" class="inline-flex items-center text-sm text-gray-500 hover:text-primary mb-6 transition-colors">
+                <span class="material-symbols-outlined text-lg mr-1">arrow_back</span>
+                Back
+            </a>
+
+            <!-- Profile Content -->
+            <div id="profile-container" class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden">
+                <div class="p-8 text-center text-gray-500">Loading profile...</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { db, auth } from "./firebase-options.js";
+        import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        const container = document.getElementById('profile-container');
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const userDocRef = doc(db, "users", user.uid);
+            const userDocSnap = await getDoc(userDocRef);
+
+            if (!userDocSnap.exists()) {
+                container.innerHTML = '<div class="p-8 text-center text-red-500">User profile not found.</div>';
+                return;
+            }
+
+            const userData = userDocSnap.data();
+            renderProfile(user, userData);
+        });
+
+        function renderProfile(user, userData) {
+            container.innerHTML = `
+                <div class="border-b border-border-light dark:border-border-dark p-6 sm:p-8">
+                    <div class="flex items-center gap-5">
+                        <img id="profile-img" src="${user.photoURL || 'https://via.placeholder.com/96'}" alt="Profile Picture" class="w-24 h-24 rounded-full object-cover border-4 border-primary/20">
+                        <div>
+                            <h1 id="display-name" class="text-2xl font-bold text-gray-900 dark:text-white">${userData.fullName || 'N/A'}</h1>
+                            <p class="text-gray-500 dark:text-gray-400">${user.email}</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="profile-form">
+                    <div class="p-6 sm:p-8 space-y-6">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                            <input type="text" name="fullName" id="fullName" value="${userData.fullName || ''}" required disabled class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 disabled:opacity-70 disabled:bg-gray-200 dark:disabled:bg-gray-700">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                            <input type="email" name="email" id="email" value="${user.email || ''}" disabled class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="role" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Role</label>
+                                <input type="text" name="role" id="role" value="${userData.role || 'N/A'}" disabled class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white capitalize">
+                            </div>
+                            <div>
+                                <label for="department" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Department</label>
+                                <input type="text" name="department" id="department" value="${userData.department || ''}" disabled class="form-input block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 disabled:opacity-70 disabled:bg-gray-200 dark:disabled:bg-gray-700">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="form-actions" class="px-6 sm:px-8 pb-6 sm:pb-8 bg-gray-50 dark:bg-gray-900/30 border-t border-border-light dark:border-border-dark flex justify-end gap-4">
+                        <button type="button" id="edit-btn" class="inline-flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-surface-hover">Edit Profile</button>
+                        <button type="submit" id="save-btn" class="hidden inline-flex justify-center items-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90">Save Changes</button>
+                        <button type="button" id="cancel-btn" class="hidden inline-flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200">Cancel</button>
+                    </div>
+                </form>
+            `;
+
+            const form = document.getElementById('profile-form');
+            const editBtn = document.getElementById('edit-btn');
+            const saveBtn = document.getElementById('save-btn');
+            const cancelBtn = document.getElementById('cancel-btn');
+            const editableFields = [document.getElementById('fullName'), document.getElementById('department')];
+
+            editBtn.addEventListener('click', () => {
+                editableFields.forEach(field => field.disabled = false);
+                editBtn.classList.add('hidden');
+                saveBtn.classList.remove('hidden');
+                cancelBtn.classList.remove('hidden');
+            });
+
+            cancelBtn.addEventListener('click', () => {
+                // Reset form to original values
+                document.getElementById('fullName').value = userData.fullName || '';
+                document.getElementById('department').value = userData.department || '';
+
+                editableFields.forEach(field => field.disabled = true);
+                editBtn.classList.remove('hidden');
+                saveBtn.classList.add('hidden');
+                cancelBtn.classList.add('hidden');
+            });
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Saving...';
+
+                try {
+                    const userDocRef = doc(db, "users", auth.currentUser.uid);
+                    await updateDoc(userDocRef, {
+                        fullName: document.getElementById('fullName').value,
+                        department: document.getElementById('department').value
+                    });
+
+                    // Update UI
+                    document.getElementById('display-name').textContent = document.getElementById('fullName').value;
+                    editableFields.forEach(field => field.disabled = true);
+                    editBtn.classList.remove('hidden');
+                    saveBtn.classList.add('hidden');
+                    cancelBtn.classList.add('hidden');
+                    alert('Profile updated successfully!');
+
+                } catch (error) {
+                    console.error("Error updating profile: ", error);
+                    alert('Failed to update profile. Please try again.');
+                } finally {
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save Changes';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -106,13 +106,14 @@
 		</div>
 		<div class="p-4 border-t border-gray-200 dark:border-gray-800">
 			<div class="flex items-center gap-3">
-				<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary object-cover"
-					data-alt="Portrait of a smiling man with glasses"
-					src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0y9ORCANElOtF5hzWIIA7N8MET7c82Du6TZQM_o_JY-x8uz7Bk3pJJtxxQg4lduLkfsLMjLJHY_8Gsh2Mi6DloK9pj6FV_IaIAakJ_IIiU0Amdmzk__2YZ3qPg4uovs50m63sdyGIZaULysahOiRng8iMw1yu_QadBjmUUkE0Ekw0oX7cwKnAcVvKW6LaLnR0ZTt6gyLMeltm9Z_qYkXysnm6FemQZCN3VTctq0DZGRAd8wz4SXzUgn7pgYjlirKdOj8pnNo4O0g" />
-				<div class="flex-1 min-w-0">
-					<p class="text-sm font-medium text-gray-900 dark:text-white truncate">Alex Morgan</p>
-					<p class="text-xs text-gray-500 truncate">Lead Technician</p>
-				</div>
+				<a href="profile.html" class="flex items-center gap-3 flex-1 min-w-0 group">
+					<img alt="Profile" id="profile-img" class="w-10 h-10 rounded-full border-2 border-primary object-cover group-hover:border-blue-400 transition"
+						data-alt="User profile picture" />
+					<div class="flex-1 min-w-0">
+						<p id="profile-name" class="text-sm font-medium text-gray-900 dark:text-white truncate group-hover:text-primary transition">Loading...</p>
+						<p id="profile-role" class="text-xs text-gray-500 truncate">Loading...</p>
+					</div>
+				</a>
 				<button id="btn-logout" class="text-gray-400 hover:text-gray-500" title="Sign Out">
 					<span class="material-icons">logout</span>
 				</button>
@@ -199,15 +200,15 @@
 			<!-- Filter Bar -->
 			<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
 				<div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
-					<button
-						class="bg-gray-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">All
+					<button onclick="loadIssues('all')"
+						class="bg-gray-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap" data-status="all">All
 						Tickets</button>
-					<button
-						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">New</button>
-					<button
-						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">In
+					<button onclick="loadIssues('New')"
+						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition" data-status="new">New</button>
+					<button onclick="loadIssues('In Progress')"
+						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition" data-status="inProgress">In
 						Progress</button>
-					<button
+					<button onclick="loadIssues('Resolved')"
 						class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-surface-hover whitespace-nowrap transition">Resolved</button>
 				</div>
 				<div class="flex items-center gap-2">
@@ -263,12 +264,45 @@
 
 	<script type="module">
 		import { db, auth } from "./firebase-options.js";
-		import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-		import { signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+		import { collection, getDocs, query, orderBy, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+		import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 		const tbody = document.getElementById('issues-table-body');
 
-		async function loadIssues() {
+		onAuthStateChanged(auth, async (user) => {
+			if (user) {
+				const userDocRef = doc(db, "users", user.uid);
+				const userDocSnap = await getDoc(userDocRef);
+
+				if (userDocSnap.exists()) {
+					const userData = userDocSnap.data();
+					const profileImg = document.getElementById('profile-img');
+					const profileName = document.getElementById('profile-name');
+					const profileRole = document.getElementById('profile-role');
+
+					if (profileName) {
+						profileName.textContent = userData.fullName || 'User';
+					}
+					if (profileRole) {
+						const role = userData.role ? userData.role.charAt(0).toUpperCase() + userData.role.slice(1) : 'User';
+						profileRole.textContent = userData.department ? `${role} - ${userData.department}` : role;
+					}
+					if (profileImg && user.photoURL) {
+						profileImg.src = user.photoURL;
+					}
+				} else {
+					console.log("User document not found in Firestore.");
+					document.getElementById('profile-name').textContent = user.email;
+					document.getElementById('profile-role').textContent = 'User';
+				}
+			} else {
+				window.location.href = 'login.html';
+			}
+		});
+
+		window.loadIssues = loadIssues;
+
+		async function loadIssues(statusFilter = 'all') {
 			try {
 				tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">Loading issues...</td></tr>';
 
@@ -278,8 +312,14 @@
 				let inProgress = 0;
 				let totalResolved = 0;
 
-				const q = query(collection(db, "maintenance_issues"));
-				const querySnapshot = await getDocs(q);
+				let q;
+				if (statusFilter === 'all') {
+					q = query(collection(db, "maintenance_issues"));
+				} else {
+					q = query(collection(db, "maintenance_issues"));
+				}
+
+				const querySnapshot = await getDocs(q)
 
 				if (querySnapshot.empty) {
 					tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">No issues found.</td></tr>';
@@ -287,7 +327,9 @@
 					return;
 				}
 
+
 				let html = '';
+
 				querySnapshot.forEach((doc) => {
 					const data = doc.data();
 					const id = doc.id;
@@ -298,6 +340,11 @@
 					const status = data.status || 'Open';
 					const priority = data.priority || 'Medium';
 
+					if (statusFilter !== 'all' && status !== statusFilter) {
+						return;
+					}
+
+
 					let dateStr = 'N/A';
 					if (data.createdAt && data.createdAt.seconds) {
 						dateStr = new Date(data.createdAt.seconds * 1000).toLocaleDateString();
@@ -306,7 +353,7 @@
 					}
 
 					// Calculate Stats
-					if (status !== 'Resolved') totalOpen++;
+					if (status !== 'Resolved') totalOpen += 1;
 					if (priority === 'High' && status !== 'Resolved') urgent++;
 					if (status === 'In Progress') inProgress++;
 					if (status === 'Resolved') totalResolved++;
@@ -379,7 +426,7 @@
 			document.getElementById('stat-resolved').textContent = resolved;
 		}
 
-		document.addEventListener('DOMContentLoaded', loadIssues);
+		document.addEventListener('DOMContentLoaded', () => loadIssues());
 
 		document.getElementById('btn-logout').addEventListener('click', () => {
 			signOut(auth).then(() => {
@@ -390,5 +437,6 @@
 		});
 	</script>
 </body>
+
 
 </html>
